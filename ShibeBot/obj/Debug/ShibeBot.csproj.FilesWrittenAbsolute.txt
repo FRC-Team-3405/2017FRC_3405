@@ -1,0 +1,8 @@
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/obj/Debug/.NETFramework,Version=v4.5.2.AssemblyAttribute.cs
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/FRC.CameraServer.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/FRC.NetworkTables.Core.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/FRC.OpenCvSharp.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/HAL.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/NativeLibraryUtilities.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/WPILib.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/WPILib.Extras.dll
