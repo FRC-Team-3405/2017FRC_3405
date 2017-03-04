@@ -6,3 +6,7 @@
 /Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/NativeLibraryUtilities.dll
 /Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/WPILib.dll
 /Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/WPILib.Extras.dll
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/ShibeBot.exe.mdb
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/bin/Debug/ShibeBot.exe
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/obj/Debug/ShibeBot.exe
+/Users/ryanberger/Downloads/ShibeBot/ShibeBot/obj/Debug/ShibeBot.exe.mdb

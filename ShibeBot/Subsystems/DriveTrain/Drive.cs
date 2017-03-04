@@ -6,13 +6,14 @@ namespace ShibeBot.Subsystems.DriveTrain
     public class DriveTrain : Subsystem
     {
 		static RobotDrive drive = RobotMap.DriveTrain;
+		private int driveSpeed;
 
         protected override void InitDefaultCommand()
         {
             throw new System.NotImplementedException();
         }
 
-		public void tankDrive(Joystick stick) 
+		public void tankDrive(ref Joystick stick) 
 		{
 			Scheduler.Instance.Run();
 

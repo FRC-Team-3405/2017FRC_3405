@@ -78,9 +78,6 @@
   <ItemGroup>
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
-    <Compile Include="Maps\Launchpad\ILaunchpadMap.cs" />
-    <Compile Include="Maps\Launchpad\LeftMap.cs" />
-    <Compile Include="Maps\Launchpad\RightMap.cs" />
     <Compile Include="Maps\XboxMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShibeBot.cs" />
@@ -97,6 +94,7 @@
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
     <Compile Include="Subsystems\Tower\Collector.cs" />
     <Compile Include="Commands\Drive.cs" />
+    <Compile Include="Commands\Throw.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />

@@ -8,6 +8,7 @@ using WPILib.SmartDashboard;
 using ShibeBot.Subsystems;
 using ShibeBot.Commands;
 using ShibeBot.Subsystems.DriveTrain;
+using ShibeBot.Subsystems.Thrower;
 
 namespace ShibeBot
 {
@@ -20,6 +21,7 @@ namespace ShibeBot
     {
         public static readonly ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 		public static DriveTrain driveTrain = new DriveTrain();
+		public static Thrower thrower = new Thrower();
         public static OI oi;
 
         Command autonomousCommand;

@@ -20,7 +20,7 @@ namespace ShibeBot.Commands
         // Called repeatedly when this Command is scheduled to run
         protected override void Execute()
         {
-			ShibeBot.driveTrain.tankDrive(ShibeBot.oi.pilot);
+			ShibeBot.driveTrain.tankDrive(ref ShibeBot.oi.pilot);
         }
 
         // Make this return true when this Command no longer needs to run execute()

@@ -12,9 +12,30 @@ namespace ShibeBot.Subsystems.Thrower
         private static Encoder rightEncoder = RobotMap.ThrowerRightQuadrature;
         private static AnalogPotentiometer angle = RobotMap.ThrowerAngle;
 
+		// Speed constant
+
+		private const double speed = 512;
+
+		// Are we throwing?
+
+
         protected override void InitDefaultCommand()
         {
             throw new System.NotImplementedException();
         }
+
+		public void startThrowing(ref Joystick controller)
+		{
+			if (controller.GetTrigger())
+			{
+				right.Set(speed);
+				left.Set(speed);
+			}
+			else {
+				right.Set(0);
+				left.Set(0);
+			}
+		}
+
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System.Net;
 using System.Runtime.InteropServices;
-using ShibeBot.Maps.Launchpad;
-using WPILib;
-using WPILib.Interfaces;
 
-using ShibeBot.Maps.Launchpad;
 
 namespace ShibeBot
 {
