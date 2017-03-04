@@ -6,15 +6,15 @@ namespace ShibeBot.Subsystems.Thrower
 {
     public class Thrower : Subsystem
     {
-        private static ISpeedController left = RobotMap.ThrowerLeft;
-        private static ISpeedController right = RobotMap.ThrowerRight;
-        private static Encoder leftEncoder = RobotMap.ThrowerLeftQuadrature;
-        private static Encoder rightEncoder = RobotMap.ThrowerRightQuadrature;
-        private static AnalogPotentiometer angle = RobotMap.ThrowerAngle;
+        //private static readonly ISpeedController _left = RobotMap.ThrowerLeft;
+        //private static readonly ISpeedController _right = RobotMap.ThrowerRight;
+        private static Encoder _leftEncoder = RobotMap.ThrowerLeftQuadrature;
+        private static Encoder _rightEncoder = RobotMap.ThrowerRightQuadrature;
+        private static AnalogPotentiometer _angle = RobotMap.ThrowerAngle;
 
 		// Speed constant
 
-		private const double speed = 512;
+		private const double Speed = 512;
 
 		// Are we throwing?
 
@@ -24,16 +24,16 @@ namespace ShibeBot.Subsystems.Thrower
             throw new System.NotImplementedException();
         }
 
-		public void startThrowing(ref Joystick controller)
+		public void StartThrowing(ref Joystick controller)
 		{
 			if (controller.GetTrigger())
 			{
-				right.Set(speed);
-				left.Set(speed);
+				//_right.Set(Speed);
+				//_left.Set(Speed);
 			}
 			else {
-				right.Set(0);
-				left.Set(0);
+				//_right.Set(0);
+				//_left.Set(0);
 			}
 		}
 

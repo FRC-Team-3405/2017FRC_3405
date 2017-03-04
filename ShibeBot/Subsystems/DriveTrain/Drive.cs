@@ -1,25 +1,29 @@
-﻿using WPILib;
+﻿using ShibeBot.Commands;
+using WPILib;
 using WPILib.Commands;
 
 namespace ShibeBot.Subsystems.DriveTrain
 {
     public class DriveTrain : Subsystem
     {
-		static RobotDrive drive = RobotMap.DriveTrain;
-		private int driveSpeed;
+        private static readonly TalonSRX LeftPrimary = new TalonSRX(0);
+        private static readonly TalonSRX RightPrimary = new TalonSRX(1);
+        private static TalonSRX _leftSecondary = new TalonSRX(2);
+        private static TalonSRX _rightSecondary = new TalonSRX(3);
+
+		public RobotDrive _drive = new RobotDrive(LeftPrimary, RightPrimary);
+		private int _driveSpeed;
 
         protected override void InitDefaultCommand()
         {
-            throw new System.NotImplementedException();
+           SetDefaultCommand(new DriveCommand());
         }
 
-		public void tankDrive(ref Joystick stick) 
+		public void TankDrive(Joystick joystick) 
 		{
-			Scheduler.Instance.Run();
+			_drive.MaxOutput = 1 - joystick.GetRawAxis(XboxMap.RightTrigger);
 
-			drive.MaxOutput = 1;
-
-			drive.ArcadeDrive(stick.GetY(), -stick.GetX());
+			_drive.ArcadeDrive(joystick.GetY(), -joystick.GetX());
 		}
     }
 }

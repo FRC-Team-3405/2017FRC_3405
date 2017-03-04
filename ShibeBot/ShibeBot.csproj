@@ -93,11 +93,10 @@
     <Compile Include="Subsystems\Reporting\Power.cs" />
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
     <Compile Include="Subsystems\Tower\Collector.cs" />
-    <Compile Include="Commands\Drive.cs" />
-    <Compile Include="Commands\Throw.cs" />
+    <Compile Include="Commands\DriveCommand.cs" />
+    <Compile Include="Commands\ThrowCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="Triggers\" />
   </ItemGroup>
   <ItemGroup>

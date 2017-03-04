@@ -6,7 +6,7 @@ namespace ShibeBot.Subsystems.Reporting
 {
     class Power : Subsystem
     {
-        static PowerDistributionPanel panel = RobotMap.Panel;
+        static PowerDistributionPanel _panel = RobotMap.Panel;
 
         protected override void InitDefaultCommand()
         {

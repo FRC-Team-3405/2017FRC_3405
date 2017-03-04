@@ -10,26 +10,26 @@ namespace ShibeBot
         CoPilot
     };
 
-    public class OI
+    public class Oi
 	{
-		public Joystick pilot;
-		public Joystick copilot;
+		public Joystick Pilot;
+		public Joystick Copilot;
 
-		public Joystick stationLeft;
-		public Joystick stationRight;
+		public Joystick StationLeft;
+		public Joystick StationRight;
 
-		//
-		public static JoystickButton pilotTrigger;
-		public OI() {
-			pilot = new Joystick(HIDMap.PilotXbox);
-			copilot = new Joystick(HIDMap.CoPilotXbox);
-			stationRight = new Joystick(HIDMap.DriverStationRight);
-			stationLeft = new Joystick(HIDMap.DriverStationLeft);
-			pilotTrigger = new JoystickButton(pilot, XBOXMap.RightBumper);
-			pilotTrigger.WhileHeld(new DriveCommand());
+	    public JoystickButton PilotTrigger;
+
+		public Oi() {
+			Pilot = new Joystick(HidMap.PilotXbox);
+			//Copilot = new Joystick(HidMap.CoPilotXbox);
+			//StationRight = new Joystick(HidMap.DriverStationRht);
+			//StationLeft = new Joystick(HidMap.DriverStationLeft);
+			//PilotTrigger = new JoystickButton(Pilot, XboxMap.AButton);
+            //PilotTrigger.WhenPressed(new DriveCommand());
 		}
 
-        void Rumble(Controller _controller)
+        void Rumble(Controller controller)
         {
 
         }

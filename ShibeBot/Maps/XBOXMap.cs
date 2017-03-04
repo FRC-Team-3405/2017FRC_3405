@@ -5,7 +5,7 @@ using WPILib.Interfaces;
 
 namespace ShibeBot
 {
-    public class XBOXMap
+    public class XboxMap
     {
         public static int AButton = 1;
         public static int BButton = 2;
@@ -18,5 +18,14 @@ namespace ShibeBot
 
         public static int LeftJoystick = 9;
         public static int RightJoystick = 10;
+
+        public static int LeftX = 0;
+        public static int LeftY = 1;
+
+        public static int LeftTrigger = 2;
+        public static int RightTrigger = 3;
+
+        public static int RightX = 4;
+        public static int RightY = 5;
     }
 }

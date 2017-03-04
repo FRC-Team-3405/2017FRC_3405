@@ -6,7 +6,7 @@ namespace ShibeBot.Subsystems.Lifter
 {
     class Lifter : Subsystem
     {
-        static ISpeedController lifter = RobotMap.LifterMotor;
+        //static ISpeedController _lifter = RobotMap.LifterMotor;
 
         protected override void InitDefaultCommand()
         {
