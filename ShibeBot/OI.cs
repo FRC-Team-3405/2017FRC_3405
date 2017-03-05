@@ -36,6 +36,7 @@ namespace ShibeBot
         //Pilot Systems
         public static JoystickButton ArcadeToggle = new JoystickButton(Pilot, XboxMap.AButton);
         public static JoystickButton TankToggle = new JoystickButton(Pilot, XboxMap.XButton);
+		public static JoystickButton HigherGear = new JoystickButton(Pilot, XboxMap.RightBumper);
         public static JoystickButton LowerGear = new JoystickButton(Pilot, XboxMap.LeftBumper);
         public static JoystickStick LeftStick = new JoystickStick(Pilot, XboxMap.LeftX, XboxMap.LeftY);
         public static JoystickStick RightStick = new JoystickStick(Pilot, XboxMap.RightX, XboxMap.RightY);
@@ -52,10 +53,10 @@ namespace ShibeBot
         // public static JoystickButton PistonOperations = new JoystickButton(Copilot, XboxMap.);
 
         //Co-Pilot Variables
-	    private bool CollectorEnabled = false;
-	    private bool ThrowerEnabled = false;
-	    private bool HooperStirEnabled = false;
-	    private bool HopperFeedEnabled = false;
+	    public static bool CollectorEnabled = false;
+	    public static bool ThrowerEnabled = false;
+	    public static bool HooperStirEnabled = false;
+	    public static bool HopperFeedEnabled = false;
 
         public Oi() {
 			//Copilot = new Joystick(HidMap.CoPilotXbox);
@@ -67,7 +68,18 @@ namespace ShibeBot
             ArcadeToggle.WhenPressed(new ArcadeEnable());
             TankToggle.WhenPressed(new TankEnable());
 
-            //Co-Pilot togglables
+			HigherGear.WhenPressed(new ShiftUpCommand());
+			LowerGear.WhenPressed(new ShiftDownCommand());
+
+			//Co-Pilot togglables
+			TurnOnThrower.WhenPressed(new ThrowerOnCommand());
+			TurnOffThrower.WhenPressed(new ThrowerOffCommand());
+
+			TurnOnCollector.WhenPressed(new CollectorOnCommand());
+			TurnOffCollector.WhenPressed(new CollectorOffCommand());
+
+
+
 
         }
 

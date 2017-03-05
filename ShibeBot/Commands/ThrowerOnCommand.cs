@@ -3,30 +3,30 @@ using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-	public class ThrowCommand : Command
+	public class ThrowerOnCommand : Command
 	{
-		public ThrowCommand()
+		public ThrowerOnCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
-			Requires(ShibeBot.Thrower);
+			//Requires(ShibeBot.DriveTrain);
 		}
 
 		// Called just before this Command runs the first time
 		protected override void Initialize()
 		{
-
+			
 		}
 
 		// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.Thrower.Throw(Oi.Pilot);
+			Oi.ThrowerEnabled = true;
 		}
 
 		// Make this return true when this Command no longer needs to run execute()
 		protected override bool IsFinished()
 		{
-			return false;
+			return true;
 		}
 
 		// Called once after isFinished returns true

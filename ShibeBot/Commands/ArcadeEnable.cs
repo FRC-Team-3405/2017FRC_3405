@@ -18,7 +18,6 @@ namespace ShibeBot.Commands
         protected override void Execute()
         {
             Oi.DriveStyle = DriveStyle.Arcade;
-            Console.WriteLine(Oi.DriveStyle);
         }
 
         protected override bool IsFinished()

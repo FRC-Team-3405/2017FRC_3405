@@ -14,7 +14,8 @@ namespace ShibeBot.Subsystems.Thrower
 
 		// Speed constant
 
-		private const double Speed = 512;
+		private double _left = 1;
+		private double _right = 1;
 
 		// Are we throwing?
 
@@ -24,17 +25,22 @@ namespace ShibeBot.Subsystems.Thrower
             throw new System.NotImplementedException();
         }
 
-		public void StartThrowing(ref Joystick controller)
+		public void Throw(Joystick controller)
 		{
-			if (controller.GetTrigger())
+			double leftRate = LeftEncoder.GetRate();
+			double rightRate = RightEncoder.GetRate();
+
+			if (leftRate > rightRate)
 			{
-				//_right.Set(Speed);
-				//_left.Set(Speed);
+				// Decrement left side
 			}
-			else {
-				//_right.Set(0);
-				//_left.Set(0);
+			else if (leftRate < rightRate) 
+			{
+				// Decrement right side
 			}
+
+			Right.Set(_right);
+			Left.Set(_left);
 		}
 
     }

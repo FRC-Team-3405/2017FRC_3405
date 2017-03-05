@@ -10,6 +10,7 @@ using ShibeBot.Commands;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
+using ShibeBot.Subsystems.Tower
 
 namespace ShibeBot
 {
@@ -20,6 +21,10 @@ namespace ShibeBot
         public static DriveTrain DriveTrain = new DriveTrain();
 
         public static Pneumatics Pnuematics = new Pneumatics();
+
+		public static Thrower Thrower = new Thrower();
+
+		public static Collector Collector = new Collector();
 
         public override void RobotInit()
         {

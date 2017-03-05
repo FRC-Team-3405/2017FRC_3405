@@ -5,6 +5,7 @@ using WPILib.Commands;
 
 namespace ShibeBot.Subsystems.Pneumatics
 {
+
     public class Pneumatics : Subsystem
     {
         static Compressor _compressor = new Compressor(RobotMap.PrimaryPcm);
@@ -12,6 +13,7 @@ namespace ShibeBot.Subsystems.Pneumatics
         static DoubleSolenoid _gearHolder = new DoubleSolenoid(RobotMap.GearDoorsExtend, RobotMap.GearDoorsRetract);
         static DoubleSolenoid _gearMech = new DoubleSolenoid(RobotMap.GearGrabberMechExtend, RobotMap.GearGrabberMechRetract);
         static DoubleSolenoid _gearClamp = new DoubleSolenoid(RobotMap.GearClampExtend, RobotMap.GearClampRetract);
+
 
         protected override void InitDefaultCommand()
         {
@@ -38,6 +40,22 @@ namespace ShibeBot.Subsystems.Pneumatics
             }
         }
 
+		public void ShiftUp()
+		{
+			if (Oi.ShifterGear != Gear.High) 
+			{
+				_shifter.Set(DoubleSolenoid.Value.Forward);
+			}
+		}
+
+		public void ShiftDown() 
+		{
+			if (Oi.ShifterGear != Gear.Low) 
+			{
+				_shifter.Set(DoubleSolenoid.Value.Reverse);
+			}
+		
+		}
         private void StepOne()
         {
             _gearHolder.Set(DoubleSolenoid.Value.Reverse);   

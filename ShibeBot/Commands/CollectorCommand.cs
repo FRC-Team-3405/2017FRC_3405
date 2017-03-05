@@ -3,12 +3,12 @@ using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-	public class ThrowCommand : Command
+	public class CollectorCommand : Command
 	{
-		public ThrowCommand()
+		public CollectorCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
-			Requires(ShibeBot.Thrower);
+			Requires(ShibeBot.Collector);
 		}
 
 		// Called just before this Command runs the first time
@@ -20,7 +20,15 @@ namespace ShibeBot.Commands
 		// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.Thrower.Throw(Oi.Pilot);
+			if (Oi.CollectorEnabled)
+			{
+				ShibeBot.Collector.Collect();
+			}
+			else 
+			{
+				ShibeBot.Collector.StopCollect();
+			}
+
 		}
 
 		// Make this return true when this Command no longer needs to run execute()
