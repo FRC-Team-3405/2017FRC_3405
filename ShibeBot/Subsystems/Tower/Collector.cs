@@ -7,7 +7,7 @@ namespace ShibeBot.Subsystems.Tower
     {
         protected override void InitDefaultCommand()
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }

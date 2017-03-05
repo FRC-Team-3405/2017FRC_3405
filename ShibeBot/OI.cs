@@ -1,6 +1,7 @@
 ﻿using WPILib;
 using WPILib.Buttons;
 using ShibeBot.Commands;
+using ShibeBot.OperatorInteface;
 
 namespace ShibeBot
 {
@@ -10,30 +11,69 @@ namespace ShibeBot
         CoPilot
     };
 
+    public enum DriveStyle
+    {
+        Arcade,
+        Tank
+    }
+
+    public enum Gear
+    {
+        Low,
+        High
+    }
+
+    public enum ToggleField
+    {
+        DriveStyle
+    }
+
     public class Oi
 	{
-		public Joystick Pilot;
-		public Joystick Copilot;
+		public static Joystick Pilot = new Joystick(HidMap.PilotXbox);
+        public static Joystick Copilot = new Joystick(HidMap.CoPilotXbox);
 
-		public Joystick StationLeft;
-		public Joystick StationRight;
+        //Pilot Systems
+        public static JoystickButton ArcadeToggle = new JoystickButton(Pilot, XboxMap.AButton);
+        public static JoystickButton TankToggle = new JoystickButton(Pilot, XboxMap.XButton);
+        public static JoystickButton LowerGear = new JoystickButton(Pilot, XboxMap.LeftBumper);
+        public static JoystickStick LeftStick = new JoystickStick(Pilot, XboxMap.LeftX, XboxMap.LeftY);
+        public static JoystickStick RightStick = new JoystickStick(Pilot, XboxMap.RightX, XboxMap.RightY);
 
-	    public JoystickButton PilotTrigger;
+        //Pilot Variables
+        public static DriveStyle DriveStyle = DriveStyle.Arcade;
+        public static Gear ShifterGear = Gear.Low;
 
-		public Oi() {
-			Pilot = new Joystick(HidMap.PilotXbox);
+        //Co-Pilot Systems
+        public static JoystickButton TurnOnCollector = new JoystickButton(Copilot, XboxMap.AButton);
+        public static JoystickButton TurnOnThrower = new JoystickButton(Copilot, XboxMap.BButton);
+        public static JoystickButton TurnOffCollector = new JoystickButton(Copilot, XboxMap.XButton);
+        public static JoystickButton TurnOffThrower = new JoystickButton(Copilot, XboxMap.YButton);
+        // public static JoystickButton PistonOperations = new JoystickButton(Copilot, XboxMap.);
+
+        //Co-Pilot Variables
+	    private bool CollectorEnabled = false;
+	    private bool ThrowerEnabled = false;
+	    private bool HooperStirEnabled = false;
+	    private bool HopperFeedEnabled = false;
+
+        public Oi() {
 			//Copilot = new Joystick(HidMap.CoPilotXbox);
 			//StationRight = new Joystick(HidMap.DriverStationRht);
 			//StationLeft = new Joystick(HidMap.DriverStationLeft);
 			//PilotTrigger = new JoystickButton(Pilot, XboxMap.AButton);
-            //PilotTrigger.WhenPressed(new DriveCommand());
-		}
+
+            //Pilot togglables
+            ArcadeToggle.WhenPressed(new ArcadeEnable());
+            TankToggle.WhenPressed(new TankEnable());
+
+            //Co-Pilot togglables
+
+        }
 
         void Rumble(Controller controller)
         {
 
         }
-
-
-    }
+	}
 }

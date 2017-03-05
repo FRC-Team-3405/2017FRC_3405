@@ -7,14 +7,13 @@ namespace ShibeBot
 {
     public class RobotMap
     {
-		//JoyStick
-
-
         //Encoders
-        public static Encoder DriveTrainLeftQuadrature = new Encoder(0, 1);
-        public static Encoder DriveTrainRightQuadrature = new Encoder(1, 2);
-        public static Encoder ThrowerLeftQuadrature = new Encoder(3, 4);
-        public static Encoder ThrowerRightQuadrature = new Encoder(5, 6);
+        public static int DriveTrainLeftQuadratureA = 0;
+        public static int DriveTrainLeftQuadratureB = 1;
+        public static int ThrowerLeftQuadratureA = 3;
+        public static int ThrowerLeftQuadratureB = 4;
+        public static int ThrowerRightQuadratureA = 5;
+        public static int ThrowerRightQuadratureB = 6;
 
         //Motors
         public static int DriveTrainLeftPrimary = 0;
@@ -28,25 +27,26 @@ namespace ShibeBot
         public static int ThrowerRight = 8;
         public static int LifterMotor = 9;
 
-        //Potentiometer
-        public static AnalogPotentiometer ThrowerAngle = new AnalogPotentiometer(0);
-
         //Drive Systems
 
         //Pneumatics
         public const int PrimaryPcm = 0;
-        public static Compressor Compressor = new Compressor(PrimaryPcm);
-        public static DoubleSolenoid DriveShfiter = new DoubleSolenoid(0, 1);
-        public static DoubleSolenoid GearHolder = new DoubleSolenoid(2, 3);
-        public static DoubleSolenoid GearAux = new DoubleSolenoid(4, 5);
-        public static DoubleSolenoid AuxClamp = new DoubleSolenoid(6, 7);
+        public const bool ClosedLoopControl = true;
+        public const int ShifterExtend = 0;
+        public const int ShifterRetract = 1;
+        public const int GearDoorsExtend = 2;
+        public const int GearDoorsRetract = 3;
+        public const int GearGrabberMechExtend = 4;
+        public const int GearGrabberMechRetract = 5;
+        public const int GearClampExtend = 6;
+        public const int GearClampRetract = 7;
 
         //Reporting
         public const int PrimaryPdp = 0;
-        public static PowerDistributionPanel Panel = new PowerDistributionPanel(PrimaryPdp);
 
         //Analog
-        public static AnalogInput Pressure = new AnalogInput(1);
+        public const int ThrowerAngle = 0;
+        public const int Pressure = 1;
 
         //Environment
         public static ADXRS450_Gyro Gyro = new ADXRS450_Gyro(SPI.Port.OnboardCS0);

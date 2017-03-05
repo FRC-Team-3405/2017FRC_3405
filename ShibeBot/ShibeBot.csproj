@@ -76,9 +76,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ArcadeEnable.cs" />
+    <Compile Include="Commands\GrabGearCommand.cs" />
+    <Compile Include="Commands\TankEnable.cs" />
+    <Compile Include="Commands\TurnOnOrOff.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
     <Compile Include="Maps\XboxMap.cs" />
+    <Compile Include="OperatorInteface\JoystickStick.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShibeBot.cs" />
     <Compile Include="OI.cs" />
@@ -89,6 +94,7 @@
     <Compile Include="Subsystems\Environment\Position.cs" />
     <Compile Include="Subsystems\Lifter\Lifter.cs" />
     <Compile Include="Subsystems\Pneumatics\Pneumatics.cs" />
+    <Compile Include="Subsystems\Reporting\Air.cs" />
     <Compile Include="Subsystems\Reporting\Match.cs" />
     <Compile Include="Subsystems\Reporting\Power.cs" />
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
@@ -97,6 +103,7 @@
     <Compile Include="Commands\ThrowCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="OperatorInteface\Joystick\" />
     <Folder Include="Triggers\" />
   </ItemGroup>
   <ItemGroup>

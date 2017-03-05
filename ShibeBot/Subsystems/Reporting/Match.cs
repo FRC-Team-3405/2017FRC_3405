@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WPILib;
+using WPILib.Commands;
+using WPILib.Interfaces;
 
 namespace ShibeBot.Subsystems.Reporting
 {
-    class Match
+    class Match : Subsystem
     {
+        protected override void InitDefaultCommand()
+        {
+
+        }
     }
 }

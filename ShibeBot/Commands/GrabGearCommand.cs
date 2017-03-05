@@ -1,35 +1,41 @@
-﻿using System;
-using ShibeBot.Subsystems.DriveTrain;
+﻿using ShibeBot.Subsystems.Pneumatics;
 using WPILib;
 using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-    public class DriveCommand : Command
+    public class GrabGearCommand : Command
     {
-        public DriveCommand()
+        public GrabGearCommand()
         {
             // Use requires() here to declare subsystem dependencies
-			Requires(ShibeBot.DriveTrain);
+            Requires(ShibeBot.Pnuematics);
         }
 
         // Called just before this Command runs the first time
         protected override void Initialize()
         {
+
         }
 
         // Called repeatedly when this Command is scheduled to run
         protected override void Execute()
         {
-            if (Oi.DriveStyle == DriveStyle.Tank)
+            switch (Oi.Pilot.GetPOV(0))
             {
-                ShibeBot.DriveTrain.TankDrive(Oi.Pilot);
+                case 0: 
+                    ShibeBot.Pnuematics.StepThroughPnuematics(1);
+                    break;
+                case 90:
+                    ShibeBot.Pnuematics.StepThroughPnuematics(2);
+                    break;
+                case 180:
+                    ShibeBot.Pnuematics.StepThroughPnuematics(3);
+                    break;
+                case 270:
+                    ShibeBot.Pnuematics.StepThroughPnuematics(4);
+                    break;
             }
-            else
-            {
-                ShibeBot.DriveTrain.ArcadeDrive(Oi.Pilot);
-            }
-
         }
 
         // Make this return true when this Command no longer needs to run execute()

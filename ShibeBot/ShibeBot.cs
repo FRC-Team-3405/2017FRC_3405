@@ -8,6 +8,7 @@ using WPILib.SmartDashboard;
 using ShibeBot.Subsystems;
 using ShibeBot.Commands;
 using ShibeBot.Subsystems.DriveTrain;
+using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
 
 namespace ShibeBot
@@ -18,7 +19,7 @@ namespace ShibeBot
 
         public static DriveTrain DriveTrain = new DriveTrain();
 
-        public static DriveCommand DriveCommand = new DriveCommand();
+        public static Pneumatics Pnuematics = new Pneumatics();
 
         public override void RobotInit()
         {
@@ -57,6 +58,7 @@ namespace ShibeBot
             stick.SetRumble(RumbleType.LeftRumble, stick.GetRawAxis(XboxMap.LeftTrigger));
             stick.SetRumble(RumbleType.RightRumble, stick.GetRawAxis(XboxMap.RightTrigger));
 
+            SmartDashboard.PutNumber("POV", Oi.Pilot.GetPOV(0));
         }
 
         public override void TestPeriodic()

@@ -6,11 +6,11 @@ namespace ShibeBot.Subsystems.Thrower
 {
     public class Thrower : Subsystem
     {
-        //private static readonly ISpeedController _left = RobotMap.ThrowerLeft;
-        //private static readonly ISpeedController _right = RobotMap.ThrowerRight;
-        private static Encoder _leftEncoder = RobotMap.ThrowerLeftQuadrature;
-        private static Encoder _rightEncoder = RobotMap.ThrowerRightQuadrature;
-        private static AnalogPotentiometer _angle = RobotMap.ThrowerAngle;
+        private static readonly ISpeedController Left = new Talon(RobotMap.ThrowerLeft);
+        private static readonly ISpeedController Right = new Talon(RobotMap.ThrowerRight);
+        private static readonly Encoder LeftEncoder = new Encoder(RobotMap.ThrowerLeftQuadratureA, RobotMap.ThrowerLeftQuadratureB);
+        private static readonly Encoder RightEncoder = new Encoder(RobotMap.ThrowerRightQuadratureA, RobotMap.ThrowerRightQuadratureB);
+        private static readonly AnalogPotentiometer Angle = new AnalogPotentiometer(RobotMap.ThrowerAngle);
 
 		// Speed constant
 
