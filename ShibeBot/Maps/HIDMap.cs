@@ -1,8 +1,4 @@
-﻿using System.Net;
-using System.Runtime.InteropServices;
-
-
-namespace ShibeBot
+﻿namespace ShibeBot
 {
     public class HidMap
     {

@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ArcadeEnable.cs" />
+    <Compile Include="Commands\CompressorOffCommand.cs" />
+    <Compile Include="Commands\CompressorOnCommand.cs" />
     <Compile Include="Commands\GrabGearCommand.cs" />
     <Compile Include="Commands\TankEnable.cs" />
     <Compile Include="Commands\TurnOnOrOff.cs" />
