@@ -1,13 +1,25 @@
 ﻿using WPILib;
 using WPILib.Commands;
+using ShibeBot.Commands;
 
 namespace ShibeBot.Subsystems.Tower
 {
-    class Collector : Subsystem
+    public class Collector : Subsystem
     {
+		private static Talon CollectorMotor = new Talon(RobotMap.TowerCollector);
         protected override void InitDefaultCommand()
         {
-            throw new System.NotImplementedException();
+			SetDefaultCommand(new CollectorCommand());
         }
+
+		public void Collect()
+		{
+			CollectorMotor.Set(1);
+		}
+
+		public void StopCollect() 
+		{
+			CollectorMotor.Set(0);
+		}
     }
 }

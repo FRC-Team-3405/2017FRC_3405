@@ -8,35 +8,27 @@ using WPILib.SmartDashboard;
 using ShibeBot.Subsystems;
 using ShibeBot.Commands;
 using ShibeBot.Subsystems.DriveTrain;
+using ShibeBot.Subsystems.Pneumatics;
+using ShibeBot.Subsystems.Thrower;
+using ShibeBot.Subsystems.Tower;
 
 namespace ShibeBot
 {
-    /// <summary>
-    /// The VM is configured to automatically run this class, and to call the
-    /// functions corresponding to each mode, as described in the IterativeRobot
-    /// documentation. 
-    /// </summary>
     public class ShibeBot : IterativeRobot
     {
-        public static readonly ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-		public static DriveTrain driveTrain = new DriveTrain();
-        public static OI oi;
+        public static Oi Oi;
 
-        Command autonomousCommand;
-        SendableChooser chooser;
+        public static DriveTrain DriveTrain = new DriveTrain();
 
-        // This function is run when the robot is first started up and should be
-        // used for any initialization code.
-        //
+        public static Pneumatics Pnuematics = new Pneumatics();
+
+		public static Thrower Thrower = new Thrower();
+
+		public static Collector Collector = new Collector();
+
         public override void RobotInit()
         {
-            oi = new OI();
-            // instantiate the command used for the autonomous period
-            autonomousCommand = new ExampleCommand();
-            chooser = new SendableChooser();
-            chooser.AddDefault("Default Auto", new ExampleCommand());
-            //chooser.AddObject("My Auto", new MyAutoCommand);
-            SmartDashboard.PutData("Chooser", chooser);
+            Oi = new Oi();
         }
 
         public override void DisabledPeriodic()
@@ -44,37 +36,10 @@ namespace ShibeBot
             Scheduler.Instance.Run();
         }
 
-        // This autonomous (along with the sendable chooser above) shows how to select between
-        // different autonomous modes using the dashboard. The senable chooser code works with
-        // the Java SmartDashboard. If you prefer the LabVIEW Dashboard, remove all the chooser
-        // code an uncomment the GetString code to get the uto name from the text box below
-        // the gyro.
-        // You can add additional auto modes by adding additional commands to the chooser code
-        // above (like the commented example) or additional comparisons to the switch structure
-        // below with additional strings and commands.
         public override void AutonomousInit()
         {
-            autonomousCommand = (Command)chooser.GetSelected();
-
-            /*
-            string autoSelected = SmartDashboard.GetString("Auto Selector", "Default");
-            switch(autoSelected)
-            {
-            case "My Auto":
-                autonomousCommand = new MyAutoCommand();
-                break;
-            case "Default Auto"
-            default:
-                autonomousCommand = new ExampleCommand();
-                break;
-            }
-            */
-            // schedule the autonomous command (example)
-            if (autonomousCommand != null) autonomousCommand.Start();
         }
 
-
-        // This function is called periodically during autonomous
         public override void AutonomousPeriodic()
         {
             Scheduler.Instance.Run();
@@ -82,33 +47,27 @@ namespace ShibeBot
 
         public override void TeleopInit()
         {
-            // This makes sure that the autonomous stops running when
-            // teleop starts running. If you want the autonomous to 
-            // continue until interrupted by another command, remove
-            // this line or comment it out.
-            if (autonomousCommand != null) autonomousCommand.Cancel();
         }
 
-        //
-        // This function is called when the disabled button is hit.
-        // You can use it to reset subsystems before shutting down.
-        //
         public override void DisabledInit()
         {
 
         }
 
-        //
-        // This function is called periodically during operator control
-        //
         public override void TeleopPeriodic()
         {
             Scheduler.Instance.Run();
+            Joystick stick = Oi.Pilot;
+            //train._drive.ArcadeDrive(1, 1);
+
+            stick.SetRumble(RumbleType.LeftRumble, stick.GetRawAxis(XboxMap.LeftTrigger));
+            stick.SetRumble(RumbleType.RightRumble, stick.GetRawAxis(XboxMap.RightTrigger));
+
+            SmartDashboard.PutNumber("POV", Oi.Pilot.GetPOV(0));
+			SmartDashboard.PutString("Drive Mode", Oi.DriveStyle.ToString());
+			SmartDashboard.PutString("Gear", Oi.ShifterGear.ToString());
         }
 
-        //
-        // This function is called periodically during test mode
-        //
         public override void TestPeriodic()
         {
             LiveWindow.Run();

@@ -8,7 +8,7 @@ namespace ShibeBot.Commands
         public ExampleCommand()
         {
             // Use requires() here to declare subsystem dependencies
-			Requires(ShibeBot.driveTrain);
+			//Requires(ShibeBot.DriveTrain);
         }
 
         // Called just before this Command runs the first time
