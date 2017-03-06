@@ -9,11 +9,11 @@ namespace ShibeBot.Subsystems.Pneumatics
 
     public class Pneumatics : Subsystem
     {
-        static readonly Compressor Compressor = new Compressor(RobotMap.PrimaryPcm);
-        static readonly DoubleSolenoid Shifter = new DoubleSolenoid(RobotMap.ShifterExtend, RobotMap.ShifterRetract);
-        static readonly DoubleSolenoid GearHolder = new DoubleSolenoid(RobotMap.GearDoorsExtend, RobotMap.GearDoorsRetract);
-        static readonly DoubleSolenoid GearMech = new DoubleSolenoid(RobotMap.GearGrabberMechExtend, RobotMap.GearGrabberMechRetract);
-        static readonly DoubleSolenoid GearClamp = new DoubleSolenoid(RobotMap.GearClampExtend, RobotMap.GearClampRetract);
+        public Compressor Compressor = new Compressor(RobotMap.PrimaryPcm);
+        public static readonly DoubleSolenoid Shifter = new DoubleSolenoid(RobotMap.ShifterExtend, RobotMap.ShifterRetract);
+        public static readonly DoubleSolenoid GearHolder = new DoubleSolenoid(RobotMap.GearDoorsExtend, RobotMap.GearDoorsRetract);
+        public static readonly DoubleSolenoid GearMech = new DoubleSolenoid(RobotMap.GearGrabberMechExtend, RobotMap.GearGrabberMechRetract);
+        public static readonly DoubleSolenoid GearClamp = new DoubleSolenoid(RobotMap.GearClampExtend, RobotMap.GearClampRetract);
 
 
         protected override void InitDefaultCommand()

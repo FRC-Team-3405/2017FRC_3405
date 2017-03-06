@@ -84,6 +84,7 @@
     <Compile Include="Commands\TurnOnOrOff.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
+    <Compile Include="Maps\PowerMap.cs" />
     <Compile Include="Maps\XboxMap.cs" />
     <Compile Include="OperatorInteface\JoystickStick.cs" />
     <Compile Include="Program.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Subsystems\Reporting\Air.cs" />
     <Compile Include="Subsystems\Reporting\Match.cs" />
     <Compile Include="Subsystems\Reporting\Power.cs" />
+    <Compile Include="Subsystems\Reporting\PowerDistribution\PowerChannel.cs" />
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
     <Compile Include="Subsystems\Tower\Collector.cs" />
     <Compile Include="Commands\DriveCommand.cs" />
