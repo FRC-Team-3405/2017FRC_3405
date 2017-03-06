@@ -22,7 +22,7 @@ namespace ShibeBot.Subsystems.Thrower
 
         protected override void InitDefaultCommand()
         {
-            throw new System.NotImplementedException();
+            
         }
 
 		public void Throw(Joystick controller)
