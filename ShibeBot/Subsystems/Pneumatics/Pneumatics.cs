@@ -45,6 +45,7 @@ namespace ShibeBot.Subsystems.Pneumatics
 			if (Oi.ShifterGear != Gear.High) 
 			{
 				_shifter.Set(DoubleSolenoid.Value.Forward);
+				Oi.ShifterGear = Gear.High;
 			}
 		}
 
@@ -53,6 +54,7 @@ namespace ShibeBot.Subsystems.Pneumatics
 			if (Oi.ShifterGear != Gear.Low) 
 			{
 				_shifter.Set(DoubleSolenoid.Value.Reverse);
+				Oi.ShifterGear = Gear.Low;
 			}
 		
 		}
