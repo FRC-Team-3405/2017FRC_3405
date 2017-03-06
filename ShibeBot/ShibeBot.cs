@@ -10,7 +10,7 @@ using ShibeBot.Commands;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
-using ShibeBot.Subsystems.Tower
+using ShibeBot.Subsystems.Tower;
 
 namespace ShibeBot
 {
@@ -64,6 +64,8 @@ namespace ShibeBot
             stick.SetRumble(RumbleType.RightRumble, stick.GetRawAxis(XboxMap.RightTrigger));
 
             SmartDashboard.PutNumber("POV", Oi.Pilot.GetPOV(0));
+			SmartDashboard.PutString("Drive Mode", Oi.DriveStyle.ToString());
+			SmartDashboard.PutString("Gear", Oi.ShifterGear.ToString());
         }
 
         public override void TestPeriodic()
