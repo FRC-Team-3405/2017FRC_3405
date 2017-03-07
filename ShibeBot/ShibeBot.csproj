@@ -39,8 +39,8 @@
     <StartupObject>ShibeBot.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FRC.CameraServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.CameraServer.1.0.0\lib\net45\FRC.CameraServer.dll</HintPath>
+    <Reference Include="FRC.CameraServer, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.CameraServer.1.0.1\lib\net45\FRC.CameraServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FRC.NetworkTables.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -48,11 +48,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FRC.OpenCvSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.OpenCvSharp.1.0.0\lib\net45\FRC.OpenCvSharp.dll</HintPath>
+      <HintPath>..\packages\FRC.OpenCvSharp.1.0.1\lib\net45\FRC.OpenCvSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HAL, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.WPILib.Extras.2017.0.1\lib\net451\HAL.dll</HintPath>
+    <Reference Include="FRC.WPILib.CTRE, Version=2017.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.WPILib.CTRE.2017.0.2\lib\net451\FRC.WPILib.CTRE.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HAL, Version=2017.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.WPILib.2017.0.3\lib\net451\HAL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NativeLibraryUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -66,8 +70,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WPILib, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.WPILib.2017.0.1\lib\net451\WPILib.dll</HintPath>
+    <Reference Include="WPILib, Version=2017.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FRC.WPILib.2017.0.3\lib\net451\WPILib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WPILib.Extras, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -77,11 +81,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ArcadeEnable.cs" />
+    <Compile Include="Commands\CompressorOffCommand.cs" />
+    <Compile Include="Commands\CompressorOnCommand.cs" />
     <Compile Include="Commands\GrabGearCommand.cs" />
     <Compile Include="Commands\TankEnable.cs" />
     <Compile Include="Commands\TurnOnOrOff.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
+    <Compile Include="Maps\PowerMap.cs" />
     <Compile Include="Maps\XboxMap.cs" />
     <Compile Include="OperatorInteface\JoystickStick.cs" />
     <Compile Include="Program.cs" />
@@ -97,6 +104,7 @@
     <Compile Include="Subsystems\Reporting\Air.cs" />
     <Compile Include="Subsystems\Reporting\Match.cs" />
     <Compile Include="Subsystems\Reporting\Power.cs" />
+    <Compile Include="Subsystems\Reporting\PowerDistribution\PowerChannel.cs" />
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
     <Compile Include="Subsystems\Tower\Collector.cs" />
     <Compile Include="Commands\DriveCommand.cs" />

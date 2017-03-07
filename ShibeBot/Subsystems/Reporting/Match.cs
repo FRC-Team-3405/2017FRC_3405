@@ -1,14 +1,20 @@
-﻿using WPILib;
+﻿using OpenCvSharp;
+using WPILib;
 using WPILib.Commands;
 using WPILib.Interfaces;
 
 namespace ShibeBot.Subsystems.Reporting
 {
-    class Match : Subsystem
+    public class Match : Subsystem
     {
         protected override void InitDefaultCommand()
         {
 
+        }
+
+        public void Update()
+        {
+            
         }
     }
 }
