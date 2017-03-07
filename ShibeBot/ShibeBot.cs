@@ -26,6 +26,8 @@ namespace ShibeBot
 
 		public static Collector Collector = new Collector();
 
+        public static Camera Camera = new Camera();
+
         public override void RobotInit()
         {
             Oi = new Oi();

@@ -41,6 +41,11 @@ namespace ShibeBot.Subsystems.DriveTrain
             _drive.ArcadeDrive(-leftY, -leftX);
         }
 
+        public void DriveManually(double leftSpeed, double rightSpeed)
+        {
+            _drive.TankDrive(leftSpeed, rightSpeed);
+        }
+
         private void AutoLerp(Joystick stick, double amount)
         {
             leftX = Lerp(leftX, stick.GetRawAxis(XboxMap.LeftX), amount);

@@ -1,15 +1,19 @@
-﻿using WPILib;
+﻿//spins robot until it is facing the target tape
+using WPILib;
 using WPILib.Commands;
+using ShibeBot.Subsystems;
 
 namespace ShibeBot.Commands
 {
     public class FaceTargetCommand : Command
     {
-        public FaceTargetCommand()
+        const double spinSpeed = .3;
+        public FaceTargetCommand(CameraTarget _target)
         {
             // Use requires() here to declare subsystem dependencies
-            //Requires(ShibeBot.DriveTrain);
-        }
+            Requires(ShibeBot.DriveTrain);
+            
+    }
 
         // Called just before this Command runs the first time
         protected override void Initialize()
@@ -20,12 +24,19 @@ namespace ShibeBot.Commands
         // Called repeatedly when this Command is scheduled to run
         protected override void Execute()
         {
+            if (!ShibeBot.Camera.SeesTape())
+                ShibeBot.DriveTrain.DriveManually(-spinSpeed, spinSpeed);
+            else
+            {
+                ShibeBot.Camera.IsBoiler();
+            }
         }
 
         // Make this return true when this Command no longer needs to run execute()
         protected override bool IsFinished()
         {
-            return false;
+
+            return true;
         }
 
         // Called once after isFinished returns true

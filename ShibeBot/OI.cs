@@ -57,6 +57,7 @@ namespace ShibeBot
 	    public static bool ThrowerEnabled = false;
 	    public static bool HooperStirEnabled = false;
 	    public static bool HopperFeedEnabled = false;
+        public static bool IsFacingTarget = false;
 
         public Oi() {
 			//Copilot = new Joystick(HidMap.CoPilotXbox);
