@@ -7,6 +7,7 @@ using WPILib.LiveWindow;
 using WPILib.SmartDashboard;
 using ShibeBot.Subsystems;
 using ShibeBot.Commands;
+using CTRE;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
@@ -28,6 +29,8 @@ namespace ShibeBot
         public static Air Air = new Air();
         public static Match Match = new Match();
         public static Power Power = new Power();
+
+        public static CANTalon srx = new CANTalon(0);
 
         public override void RobotInit()
         {
@@ -57,6 +60,7 @@ namespace ShibeBot
 
         }
 
+        private double flot = 0;
         public override void TeleopPeriodic()
         {
             Scheduler.Instance.Run();
@@ -76,6 +80,10 @@ namespace ShibeBot
             Air.Update();
             Match.Update();
             Power.Update();
+
+            srx.Set(Math.Sin(flot));
+
+            flot += 0.05;
         }
 
         public override void TestPeriodic()
