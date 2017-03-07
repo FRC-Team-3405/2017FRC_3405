@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Runtime.InteropServices;
-using WPILib;
-using WPILib.Interfaces;
+﻿using WPILib;
 
 namespace ShibeBot
 {
@@ -49,6 +46,6 @@ namespace ShibeBot
         public const int Pressure = 1;
 
         //Environment
-        public static ADXRS450_Gyro Gyro = new ADXRS450_Gyro(SPI.Port.OnboardCS0);
+        public static SPI.Port Gyro = SPI.Port.OnboardCS0;
     }
 }

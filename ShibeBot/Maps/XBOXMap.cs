@@ -1,9 +1,4 @@
-﻿using System.Net;
-using System.Runtime.InteropServices;
-using WPILib;
-using WPILib.Interfaces;
-
-namespace ShibeBot
+﻿namespace ShibeBot
 {
     public class XboxMap
     {

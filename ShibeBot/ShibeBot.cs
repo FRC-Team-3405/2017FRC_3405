@@ -7,10 +7,12 @@ using WPILib.LiveWindow;
 using WPILib.SmartDashboard;
 using ShibeBot.Subsystems;
 using ShibeBot.Commands;
+using CTRE;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
 using ShibeBot.Subsystems.Tower;
+using ShibeBot.Subsystems.Reporting;
 
 namespace ShibeBot
 {
@@ -19,12 +21,16 @@ namespace ShibeBot
         public static Oi Oi;
 
         public static DriveTrain DriveTrain = new DriveTrain();
-
         public static Pneumatics Pnuematics = new Pneumatics();
-
-		public static Thrower Thrower = new Thrower();
-
+        public static Thrower Thrower = new Thrower();
 		public static Collector Collector = new Collector();
+
+        //Reporting Subsystems (Requires Update!)
+        public static Air Air = new Air();
+        public static Match Match = new Match();
+        public static Power Power = new Power();
+
+        public static CANTalon srx = new CANTalon(0);
 
         public static Camera Camera = new Camera();
 
@@ -56,6 +62,7 @@ namespace ShibeBot
 
         }
 
+        private double flot = 0;
         public override void TeleopPeriodic()
         {
             Scheduler.Instance.Run();
@@ -68,6 +75,17 @@ namespace ShibeBot
             SmartDashboard.PutNumber("POV", Oi.Pilot.GetPOV(0));
 			SmartDashboard.PutString("Drive Mode", Oi.DriveStyle.ToString());
 			SmartDashboard.PutString("Gear", Oi.ShifterGear.ToString());
+
+            SmartDashboard.PutData("Compressor On", new CompressorOnCommand());
+            SmartDashboard.PutData("Compressor Off", new CompressorOffCommand());
+
+            Air.Update();
+            Match.Update();
+            Power.Update();
+
+            srx.Set(Math.Sin(flot));
+
+            flot += 0.05;
         }
 
         public override void TestPeriodic()

@@ -29,7 +29,9 @@ namespace ShibeBot
     }
 
     public class Oi
-	{
+    {
+        public static bool JoysticksSwitched = false;
+
 		public static Joystick Pilot = new Joystick(HidMap.PilotXbox);
         public static Joystick Copilot = new Joystick(HidMap.CoPilotXbox);
 
@@ -78,10 +80,21 @@ namespace ShibeBot
 
 			TurnOnCollector.WhenPressed(new CollectorOnCommand());
 			TurnOffCollector.WhenPressed(new CollectorOffCommand());
+        }
 
-
-
-
+        public void InvertControllers(bool IsSwapped)
+        {
+            JoysticksSwitched = IsSwapped;
+            if (IsSwapped)
+            {
+                Pilot = new Joystick(HidMap.CoPilotXbox);
+                Copilot = new Joystick(HidMap.PilotXbox);
+            }
+            else
+            {
+                Pilot = new Joystick(HidMap.PilotXbox);
+                Copilot = new Joystick(HidMap.CoPilotXbox);
+            }
         }
 
         void Rumble(Controller controller)
