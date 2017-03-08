@@ -19,8 +19,6 @@ namespace ShibeBot.Subsystems.Thrower
 		private double _left = 1;
 		private double _right = 1;
 
-		// Are we throwing?
-
 
         protected override void InitDefaultCommand()
         {

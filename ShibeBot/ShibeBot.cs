@@ -40,29 +40,33 @@ namespace ShibeBot
 
         public static Camera Camera = new Camera();
 
+
         public override void RobotInit()
         {
             Oi = new Oi();
             Thread CameraThread = new Thread(() => {
-                AxisCamera camera = CameraServer.Instance.AddAxisCamera(CameraAddress);
-                camera.SetResolution(640, 480);
+				AxisCamera camera = CameraServer.Instance.AddAxisCamera(CameraAddress);
+				camera.SetResolution(640, 480);
 
-                CvSink CvSink = CameraServer.Instance.GetVideo();
-                CvSource CvSource = CameraServer.Instance.PutVideo("Blur", 640, 480);
+				CvSink CvSink = CameraServer.Instance.GetVideo();
+				CvSource CvSource = CameraServer.Instance.PutVideo("Blur", 640, 480);
+				Mat source = new Mat();
 
-                Mat source = new Mat();
+				while (true)
+				{
+					if (CvSink.GrabFrame(source) == 0)
+					{
+						CvSource.NotifyError(CvSink.GetError());
+						continue;
+					}
+					CvSource.PutFrame(source);
+					Mat processed = new Mat();
+					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);
 
-                while (true) {
-                    if (CvSink.GrabFrame(source) == 0) {
-                        CvSource.NotifyError(CvSink.GetError());
-                        continue;
-                    }
+						//Cv2.CvtColor(source, hsv, )
+	            }
+					//Here is our magical line of code for later.
 
-                    Cv2.Rectangle(source, new Point(100, 100), new Point(400, 400), new Scalar(255, 255, 255), 5);
-                	CvSource.PutFrame(source);
-                }
-				//Here is our magical line of code for later.
-				//source.CopyTo(new Mat(), new Mat().CvtColor(ColorConversionCodes.YUV2BGR));
             });
             CameraThread.IsBackground = true;
             CameraThread.Start();
