@@ -49,7 +49,7 @@ namespace ShibeBot.Subsystems.Thrower
 		{
 			double angle = Math.Atan2(height, distance);
 			double distanceToTurn = (Angle.Get() - angle) / 360;
-			AngleOutput.SetVoltage(distanceToTurn)
+            AngleOutput.SetVoltage(distanceToTurn);
 		}
 
     }

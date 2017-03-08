@@ -83,8 +83,10 @@
     <Compile Include="Commands\ArcadeEnable.cs" />
     <Compile Include="Commands\CompressorOffCommand.cs" />
     <Compile Include="Commands\CompressorOnCommand.cs" />
+    <Compile Include="Commands\CoPilotSwitchCommand.cs" />
     <Compile Include="Commands\FaceTargetCommand.cs" />
     <Compile Include="Commands\GrabGearCommand.cs" />
+    <Compile Include="Commands\PilotSwitchCommand.cs" />
     <Compile Include="Commands\TankEnable.cs" />
     <Compile Include="Commands\TurnOnOrOff.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />

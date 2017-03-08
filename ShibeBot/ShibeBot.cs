@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using CSCore;
+using OpenCvSharp;
 using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
@@ -13,6 +13,7 @@ using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
 using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.Reporting;
+using System.Threading;
 
 namespace ShibeBot
 {
@@ -20,10 +21,14 @@ namespace ShibeBot
     {
         public static Oi Oi;
 
+        private const string CameraAddress = "";
+
         public static DriveTrain DriveTrain = new DriveTrain();
         public static Pneumatics Pnuematics = new Pneumatics();
         public static Thrower Thrower = new Thrower();
 		public static Collector Collector = new Collector();
+
+        public static CameraServer CameraServer = CameraServer.Instance;
 
         //Reporting Subsystems (Requires Update!)
         public static Air Air = new Air();
@@ -37,6 +42,27 @@ namespace ShibeBot
         public override void RobotInit()
         {
             Oi = new Oi();
+            Thread CameraThread = new Thread(() => {
+                AxisCamera camera = CameraServer.Instance.AddAxisCamera(CameraAddress);
+                camera.SetResolution(640, 480);
+
+                CvSink CvSink = CameraServer.Instance.GetVideo();
+                CvSource CvSource = CameraServer.Instance.PutVideo("Blur", 640, 480);
+
+                Mat source = new Mat();
+
+                while (true) {
+                    if (CvSink.GrabFrame(source) == 0) {
+                        CvSource.NotifyError(CvSink.GetError());
+                        continue;
+                    }
+
+                    Cv2.Rectangle(source, new Point(100, 100), new Point(400, 400), new Scalar(255, 255, 255), 5);
+                    CvSource.PutFrame(source);
+                }
+            });
+            CameraThread.IsBackground = true;
+            CameraThread.Start();
         }
 
         public override void DisabledPeriodic()

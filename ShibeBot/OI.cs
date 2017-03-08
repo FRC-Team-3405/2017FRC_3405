@@ -42,6 +42,7 @@ namespace ShibeBot
         public static JoystickButton LowerGear = new JoystickButton(Pilot, XboxMap.LeftBumper);
         public static JoystickStick LeftStick = new JoystickStick(Pilot, XboxMap.LeftX, XboxMap.LeftY);
         public static JoystickStick RightStick = new JoystickStick(Pilot, XboxMap.RightX, XboxMap.RightY);
+        public static JoystickButton PilotSwitch = new JoystickButton(Pilot, XboxMap.StartButton);
 
         //Pilot Variables
         public static DriveStyle DriveStyle = DriveStyle.Arcade;
@@ -52,10 +53,11 @@ namespace ShibeBot
         public static JoystickButton TurnOnThrower = new JoystickButton(Copilot, XboxMap.BButton);
         public static JoystickButton TurnOffCollector = new JoystickButton(Copilot, XboxMap.XButton);
         public static JoystickButton TurnOffThrower = new JoystickButton(Copilot, XboxMap.YButton);
+        public static JoystickButton CoPilotSwitch = new JoystickButton(Copilot, XboxMap.StartButton);
         // public static JoystickButton PistonOperations = new JoystickButton(Copilot, XboxMap.);
 
         //Co-Pilot Variables
-	    public static bool CollectorEnabled = false;
+        public static bool CollectorEnabled = false;
 	    public static bool ThrowerEnabled = false;
 	    public static bool HooperStirEnabled = false;
 	    public static bool HopperFeedEnabled = false;
@@ -80,21 +82,18 @@ namespace ShibeBot
 
 			TurnOnCollector.WhenPressed(new CollectorOnCommand());
 			TurnOffCollector.WhenPressed(new CollectorOffCommand());
+
+            PilotSwitch.WhenPressed(new PilotSwitchCommand());
+
         }
 
-        public void InvertControllers(bool IsSwapped)
+        public static void InvertControllers()
         {
-            JoysticksSwitched = IsSwapped;
-            if (IsSwapped)
-            {
-                Pilot = new Joystick(HidMap.CoPilotXbox);
-                Copilot = new Joystick(HidMap.PilotXbox);
-            }
-            else
-            {
-                Pilot = new Joystick(HidMap.PilotXbox);
-                Copilot = new Joystick(HidMap.CoPilotXbox);
-            }
+            JoysticksSwitched = !JoysticksSwitched;
+            int temp;
+            temp = HidMap.CoPilotXbox;
+            HidMap.CoPilotXbox = HidMap.PilotXbox;
+            HidMap.PilotXbox = temp;
         }
 
         void Rumble(Controller controller)
