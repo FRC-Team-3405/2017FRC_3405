@@ -1,6 +1,7 @@
 ﻿using System;
 using CSCore;
 using OpenCvSharp;
+using NetworkTables;
 using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
@@ -58,8 +59,10 @@ namespace ShibeBot
                     }
 
                     Cv2.Rectangle(source, new Point(100, 100), new Point(400, 400), new Scalar(255, 255, 255), 5);
-                    CvSource.PutFrame(source);
+                	CvSource.PutFrame(source);
                 }
+				//Here is our magical line of code for later.
+				//source.CopyTo(new Mat(), new Mat().CvtColor(ColorConversionCodes.YUV2BGR));
             });
             CameraThread.IsBackground = true;
             CameraThread.Start();
