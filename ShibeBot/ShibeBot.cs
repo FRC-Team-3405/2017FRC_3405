@@ -15,6 +15,7 @@ using ShibeBot.Subsystems.Thrower;
 using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.Reporting;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace ShibeBot
 {
@@ -60,22 +61,25 @@ namespace ShibeBot
 						CvSource.NotifyError(CvSink.GetError());
 						continue;
 					}
-					Point[][] points = new Point[640][];
+					Point[][] points = new Point[10][];
 					HierarchyIndex[] index = new HierarchyIndex[2500];
 					CvSource.PutFrame(source);
 					Mat processed = new Mat();
 					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);
 					Cv2.FindContours(processed, out points, RetrievalModes.List, ContourApproximationModes.ApproxSimple);
-					double largest = 0;
+					double largest = 1;
+					double secondLargest = 0;
 					for (int i = 0; i < points.Length; i++)
 					{
 						double a = Cv2.ContourArea(points[i], false);
 						if (a > largest) 
 						{
-							
+							largest = a;
 						}
-							
-							
+						else if (a > secondLargest) 
+						{
+							secondLargest = a;
+						}
 					}
 	            }
 
