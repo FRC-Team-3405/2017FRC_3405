@@ -1,6 +1,7 @@
 ﻿using System.Media;
 using ShibeBot.Commands;
 using ShibeBot.OperatorInteface;
+using CTRE;
 using WPILib;
 using WPILib.Commands;
 using WPILib.SmartDashboard;
@@ -9,10 +10,11 @@ namespace ShibeBot.Subsystems.DriveTrain
 {
     public class DriveTrain : Subsystem
     {
-        private static readonly TalonSRX LeftPrimary = new TalonSRX(0);
-        private static readonly TalonSRX RightPrimary = new TalonSRX(1);
-        private static TalonSRX _leftSecondary = new TalonSRX(2);
-        private static TalonSRX _rightSecondary = new TalonSRX(3);
+		
+		private static readonly CANTalon LeftPrimary = new CANTalon(0);
+        private static readonly CANTalon RightPrimary = new CANTalon(1);
+        private static readonly CANTalon LeftSecondary = new CANTalon(2);
+		private static readonly CANTalon RightSecondary = new CANTalon(3);
 
 		public RobotDrive _drive = new RobotDrive(LeftPrimary, RightPrimary);
 		private int _driveSpeed;
