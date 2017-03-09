@@ -36,7 +36,6 @@ namespace ShibeBot
         public static Match Match = new Match();
         public static Power Power = new Power();
 
-        public static CANTalon srx = new CANTalon(0);
 
         public static Camera Camera = new Camera();
 
@@ -44,7 +43,8 @@ namespace ShibeBot
         public override void RobotInit()
         {
             Oi = new Oi();
-            Thread CameraThread = new Thread(() => {
+            Thread CameraThread = new Thread(() =>
+			{
 				AxisCamera camera = CameraServer.Instance.AddAxisCamera(CameraAddress);
 				camera.SetResolution(640, 480);
 
@@ -54,18 +54,30 @@ namespace ShibeBot
 
 				while (true)
 				{
+
 					if (CvSink.GrabFrame(source) == 0)
 					{
 						CvSource.NotifyError(CvSink.GetError());
 						continue;
 					}
+					Point[][] points = new Point[640][];
+					HierarchyIndex[] index = new HierarchyIndex[2500];
 					CvSource.PutFrame(source);
 					Mat processed = new Mat();
-					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);			
-					//blobDetector.Detect(processed);
-						//Cv2.CvtColor(source, hsv, )
+					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);
+					Cv2.FindContours(processed, out points, RetrievalModes.List, ContourApproximationModes.ApproxSimple);
+					double largest = 0;
+					for (int i = 0; i < points.Length; i++)
+					{
+						double a = Cv2.ContourArea(points[i], false);
+						if (a > largest) 
+						{
+							
+						}
+							
+							
+					}
 	            }
-					//Here is our magical line of code for later.
 
             });
             CameraThread.IsBackground = true;
@@ -116,7 +128,6 @@ namespace ShibeBot
             Match.Update();
             Power.Update();
 
-            srx.Set(Math.Sin(flot));
 
             flot += 0.05;
         }
