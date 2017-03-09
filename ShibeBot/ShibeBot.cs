@@ -61,8 +61,8 @@ namespace ShibeBot
 					}
 					CvSource.PutFrame(source);
 					Mat processed = new Mat();
-					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);
-
+					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);			
+					//blobDetector.Detect(processed);
 						//Cv2.CvtColor(source, hsv, )
 	            }
 					//Here is our magical line of code for later.
