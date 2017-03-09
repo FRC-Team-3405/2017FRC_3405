@@ -20,8 +20,8 @@ namespace ShibeBot.Commands
 		// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.Thrower.Throw();
 			Oi.ThrowerEnabled = true;
+			ShibeBot.Thrower.Throw();
 		}
 
 		// Make this return true when this Command no longer needs to run execute()
