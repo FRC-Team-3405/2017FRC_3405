@@ -8,7 +8,7 @@ namespace ShibeBot.Commands
 		public ThrowerOffCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
-			//Requires(ShibeBot.DriveTrain);
+			Requires(ShibeBot.Thrower);
 		}
 
 		// Called just before this Command runs the first time
@@ -21,6 +21,7 @@ namespace ShibeBot.Commands
 		protected override void Execute()
 		{
 			Oi.ThrowerEnabled = false;
+			ShibeBot.Thrower.StopThrowing();
 		}
 
 		// Make this return true when this Command no longer needs to run execute()
