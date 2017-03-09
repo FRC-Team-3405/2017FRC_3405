@@ -50,12 +50,19 @@ namespace ShibeBot.Subsystems.Thrower
 		//	Left.Set(_left);
 		//}
 
-		public void Throw(Joystick controller) 
+		public void Throw() 
 		{
 			Left.Set(1);
 			Right.Set(1);
 			Thread.Sleep(200);
 			Loader.Set(1);
+		}
+
+		public void StopThrowing() 
+		{
+			Left.Set(0);
+			Right.Set(0);
+			Loader.Set(-1);
 		}
     }
 }
