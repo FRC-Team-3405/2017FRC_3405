@@ -102,6 +102,16 @@ public class Drive
 		double left = (y + x) * MaxOutput;
 		double right = (y - x) * MaxOutput;
 
+		if (right <= .2 && right >= -.2) 
+		{
+			right = 0;
+		}
+
+		if (left <= .2 && left >= -.2)
+		{
+			left = 0;
+		}
+
 		RightPrimary.Set(right);
 		RightSecondary.Set(right);
 
@@ -119,7 +129,7 @@ public class Drive
 		LeftSecondary.Set(y2 * MaxOutput);
 	}
 
-	public void DriveDistance(double distance)
+	public void DriveDistance(int distance)
 	{
 		//double position = (distance * 12) / (4 * Math.PI);
 
