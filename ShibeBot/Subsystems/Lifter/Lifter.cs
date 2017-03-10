@@ -1,4 +1,5 @@
-﻿using WPILib;
+﻿using ShibeBot.Commands;
+using WPILib;
 using WPILib.Commands;
 using WPILib.Interfaces;
 
@@ -10,6 +11,7 @@ namespace ShibeBot.Subsystems.Lifter
 		private static VictorSP LifterMotor = new VictorSP(0);
         protected override void InitDefaultCommand()
         {
+            SetDefaultCommand(new ClimbCommand());
         }
 
 		public void Climb(Joystick stick) {

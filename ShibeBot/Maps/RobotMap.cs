@@ -22,7 +22,7 @@ namespace ShibeBot
         public static int ThrowerLoader = 2;
         public static int ThrowerLeft = 3;
         public static int ThrowerRight = 4;
-        public static int LifterMotor = ;
+        public static int LifterMotor = 5;
 
         //Drive Systems
 
