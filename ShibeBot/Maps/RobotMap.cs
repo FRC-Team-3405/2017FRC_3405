@@ -17,12 +17,12 @@ namespace ShibeBot
         public static int DriveTrainLeftSecondary = 1;
         public static int DriveTrainRightPrimary = 2;
         public static int DriveTrainRightSecondary = 3;
-        public static int TowerCollector = 4;
-        public static int HopperMotor = 5;
-        public static int ThrowerLoader = 6;
-        public static int ThrowerLeft = 7;
-        public static int ThrowerRight = 8;
-        public static int LifterMotor = 9;
+        public static int TowerCollector = 0;
+        public static int HopperMotor = 1;
+        public static int ThrowerLoader = 2;
+        public static int ThrowerLeft = 3;
+        public static int ThrowerRight = 4;
+        public static int LifterMotor = ;
 
         //Drive Systems
 
