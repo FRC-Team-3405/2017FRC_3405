@@ -12,12 +12,12 @@ namespace ShibeBot.Subsystems.DriveTrain
 	public class DriveTrain : Subsystem
 	{
 
-		private static readonly CANTalon LeftPrimary = new CANTalon(0);
-		private static readonly CANTalon RightPrimary = new CANTalon(1);
-		private static readonly CANTalon LeftSecondary = new CANTalon(2);
-		private static readonly CANTalon RightSecondary = new CANTalon(3);
+		private static readonly TalonSRX LeftPrimary = new TalonSRX(0);
+		private static readonly TalonSRX RightPrimary = new TalonSRX(1);
+		private static readonly TalonSRX LeftSecondary = new TalonSRX(2);
+		private static readonly TalonSRX RightSecondary = new TalonSRX(3);
 
-		private Drive _drive = new Drive(RightPrimary, LeftPrimary, RightSecondary, LeftSecondary);
+		private RobotDrive _drive = new RobotDrive(RightPrimary, LeftPrimary);
 
 		protected override void InitDefaultCommand()
 		{
@@ -74,59 +74,59 @@ namespace ShibeBot.Subsystems.DriveTrain
 }
 
 
-public class Drive
-{
+//public class Drive
+//{
 
-	private const int WheelDiameter = 4;
-	private const int InchesToFeet = 12;
+//	private const int WheelDiameter = 4;
+//	private const int InchesToFeet = 12;
 
 
-	private CANTalon RightPrimary;
-	private CANTalon LeftPrimary;
-	private CANTalon RightSecondary;
-	private CANTalon LeftSecondary;
+//	private TalonSRX RightPrimary;
+//	private TalonSRX LeftPrimary;
+//	private TalonSRX RightSecondary;
+//	private TalonSRX LeftSecondary;
 
-	public double MaxOutput = 1;
+//	public double MaxOutput = 1;
 
-	public Drive(CANTalon _rightPrimary, CANTalon _leftPrimary, CANTalon _rightSecondary, CANTalon _leftSecondary)
-	{
-		RightPrimary = _rightPrimary;
-		LeftPrimary = _leftPrimary;
-		LeftSecondary = _leftSecondary;
-		RightSecondary = _rightSecondary;
-	}
+//	public Drive(TalonSRX _rightPrimary, TalonSRX _leftPrimary, TalonSRX _rightSecondary, TalonSRX _leftSecondary)
+//	{
+//		RightPrimary = _rightPrimary;
+//		LeftPrimary = _leftPrimary;
+//		LeftSecondary = _leftSecondary;
+//		RightSecondary = _rightSecondary;
+//	}
 
-	public void ArcadeDrive(double x, double y)
-	{
-		double left = (y + x) * MaxOutput;
-		double right = (y - x) * MaxOutput;
+//	public void ArcadeDrive(double x, double y)
+//	{
+//		double left = (y + x) * MaxOutput;
+//		double right = (y - x) * MaxOutput;
 
-		RightPrimary.Set(right);
-		RightSecondary.Set(right);
+//		RightPrimary.Set(right);
+//		RightSecondary.Set(right);
 
-		LeftPrimary.Set(left);
-		LeftSecondary.Set(left);
+//		LeftPrimary.Set(left);
+//		LeftSecondary.Set(left);
 
-	}
+//	}
 
-	public void TankDrive(double y1, double y2)
-	{
-		RightPrimary.Set(y1 * MaxOutput);
-		RightSecondary.Set(y1 * MaxOutput);
+//	public void TankDrive(double y1, double y2)
+//	{
+//		RightPrimary.Set(y1 * MaxOutput);
+//		RightSecondary.Set(y1 * MaxOutput);
 
-		LeftPrimary.Set(y2 * MaxOutput);
-		LeftSecondary.Set(y2 * MaxOutput);
-	}
+//		LeftPrimary.Set(y2 * MaxOutput);
+//		LeftSecondary.Set(y2 * MaxOutput);
+//	}
 
-	public void DriveDistance(double distance)
-	{
-		double position = (distance * 12) / (4 * Math.PI);
+//	public void DriveDistance(double distance)
+//	{
+//		double position = (distance * 12) / (4 * Math.PI);
 
-		RightPrimary.SetPosition(position);
-		RightSecondary.SetPosition(position);
+//		RightPrimary.SetPosition(position);
+//		RightSecondary.SetPosition(position);
 
-		LeftPrimary.SetPosition(position);
-		LeftSecondary.SetPosition(position);
-	}
+//		LeftPrimary.SetPosition(position);
+//		LeftSecondary.SetPosition(position);
+//	}
 
-}
+//}
