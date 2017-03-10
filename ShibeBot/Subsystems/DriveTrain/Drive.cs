@@ -34,7 +34,6 @@ namespace ShibeBot.Subsystems.DriveTrain
 
 		public void TankDrive(Joystick stick)
 		{
-			AutoLerp(stick, 0.05);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
 			if (InvertedControls)
 			{
