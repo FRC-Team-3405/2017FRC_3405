@@ -20,7 +20,7 @@ namespace ShibeBot.Commands
 			// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.DriveTrain.DriveDistance(10);
+			ShibeBot.DriveTrain.DriveDistance(5);
 
 		}
 

@@ -32,19 +32,19 @@ namespace ShibeBot.Subsystems.DriveTrain
 
 		public void TankDrive(Joystick stick)
 		{
-			AutoLerp(stick, 0.05);
+			AutoLerp(stick, 0.1);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
 			_drive.TankDrive(rightY, leftY);
 		}
 
 		public void ArcadeDrive(Joystick stick)
 		{
-			AutoLerp(stick, 0.05);
+			AutoLerp(stick, 0.1);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
 			_drive.ArcadeDrive(leftY, -leftX);
 		}
 
-		public void DriveDistance(double distance)
+		public void DriveDistance(int distance)
 		{
 			_drive.DriveDistance(distance);
 		}
