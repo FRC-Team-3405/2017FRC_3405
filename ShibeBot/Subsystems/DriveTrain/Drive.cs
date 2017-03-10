@@ -34,15 +34,14 @@ namespace ShibeBot.Subsystems.DriveTrain
 
 		public void TankDrive(Joystick stick)
 		{
-			AutoLerp(stick, 0.05);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
 			if (InvertedControls)
 			{
-				_drive.TankDrive(-stick.GetRawAxis(XboxMap.RightY), stick.GetRawAxis(XboxMap.LeftY));
+				_drive.TankDrive(stick.GetRawAxis(XboxMap.RightY), stick.GetRawAxis(XboxMap.LeftY));
 			}
 			else 
 			{
-				_drive.ArcadeDrive(-stick.GetRawAxis(XboxMap.RightY), stick.GetRawAxis(XboxMap.LeftY));
+				_drive.ArcadeDrive(-stick.GetRawAxis(XboxMap.RightY), -stick.GetRawAxis(XboxMap.LeftY));
 			}
 		}
 
