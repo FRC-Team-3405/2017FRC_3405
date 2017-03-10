@@ -38,11 +38,11 @@ namespace ShibeBot.Subsystems.DriveTrain
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
 			if (InvertedControls)
 			{
-				_drive.TankDrive(-stick.GetRawAxis(XboxMap.RightY), stick.GetRawAxis(XboxMap.LeftY));
+				_drive.TankDrive(stick.GetRawAxis(XboxMap.RightY), stick.GetRawAxis(XboxMap.LeftY));
 			}
 			else 
 			{
-				_drive.ArcadeDrive(-stick.GetRawAxis(XboxMap.RightY), stick.GetRawAxis(XboxMap.LeftY));
+				_drive.ArcadeDrive(-stick.GetRawAxis(XboxMap.RightY), -stick.GetRawAxis(XboxMap.LeftY));
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace ShibeBot.Subsystems.DriveTrain
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
 			if (InvertedControls)
 			{
-				_drive.ArcadeDrive(-stick.GetRawAxis(XboxMap.LeftY), stick.GetRawAxis(XboxMap.LeftX));
+				_drive.ArcadeDrive(-stick.GetRawAxis(XboxMap.LeftY), stick.GetRawAxis(XboxMap.LeftX), true);
 			}
 			else 
 			{ 
@@ -112,11 +112,20 @@ public class Drive
 		RightSecondary = _rightSecondary;
 	}
 
-	public void ArcadeDrive(double x, double y)
+	public void ArcadeDrive(double x, double y, bool isInverted = false)
 	{
-		double left = (y + x) * MaxOutput;
-		double right = (y - x) * MaxOutput;
-
+		double left;
+		double right;
+		if (isInverted)
+		{
+			left = (y - x) * MaxOutput;
+			right = (y + x) * MaxOutput;
+		}
+		else
+		{
+			left = (y + x) * MaxOutput;
+			right = (y - x) * MaxOutput;
+		}
 		if (right <= .2 && right >= -.2) 
 		{
 			right = 0;

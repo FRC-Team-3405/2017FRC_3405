@@ -1,27 +1,26 @@
-﻿using System;
-using WPILib;
-	using WPILib.Commands;
+﻿using WPILib;
+using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-	public class AutonomousCommand : Command
+	public class InvertOffCommand : Command
 	{
-		public AutonomousCommand()
+		public InvertOffCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
 			Requires(ShibeBot.DriveTrain);
 		}
+
 		// Called just before this Command runs the first time
 		protected override void Initialize()
 		{
-		
+
 		}
 
-			// Called repeatedly when this Command is scheduled to run
+		// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.DriveTrain.DriveDistance(3);
-
+			ShibeBot.DriveTrain.InvertedControls = false;
 		}
 
 		// Make this return true when this Command no longer needs to run execute()

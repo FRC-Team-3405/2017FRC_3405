@@ -3,9 +3,9 @@ using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-	public class InvertCommand : Command
+	public class InvertOnCommand : Command
 	{
-		public InvertCommand()
+		public InvertOnCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
 			Requires(ShibeBot.DriveTrain);
@@ -20,7 +20,7 @@ namespace ShibeBot.Commands
 		// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.DriveTrain.InvertedControls = !ShibeBot.DriveTrain.InvertedControls;
+			ShibeBot.DriveTrain.InvertedControls = true;
 		}
 
 		// Make this return true when this Command no longer needs to run execute()
