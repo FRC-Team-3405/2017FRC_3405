@@ -43,7 +43,7 @@ namespace ShibeBot
         public static JoystickStick LeftStick = new JoystickStick(Pilot, XboxMap.LeftX, XboxMap.LeftY);
         public static JoystickStick RightStick = new JoystickStick(Pilot, XboxMap.RightX, XboxMap.RightY);
 		public static JoystickButton InvertButton = new JoystickButton(Pilot, XboxMap.YButton);
-		public static JoystickButton VertButton = new JoystickButton(Pilot, XboxMap.BButton)
+		public static JoystickButton VertButton = new JoystickButton(Pilot, XboxMap.BButton);
 
         //Pilot Variables
         public static DriveStyle DriveStyle = DriveStyle.Arcade;
