@@ -32,6 +32,9 @@ namespace ShibeBot
 
         public static CANTalon srx = new CANTalon(0);
 
+		Command autonomousCommand;
+		SendableChooser chooser;
+
         public override void RobotInit()
         {
             Oi = new Oi();
@@ -44,7 +47,9 @@ namespace ShibeBot
 
         public override void AutonomousInit()
         {
-			
+			autonomousCommand = new AutonomousCommand();
+
+			if (autonomousCommand != null) autonomousCommand.Start();
         }
 
         public override void AutonomousPeriodic()
