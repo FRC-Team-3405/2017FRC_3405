@@ -30,7 +30,6 @@ namespace ShibeBot
         public static Match Match = new Match();
         public static Power Power = new Power();
 
-        public static CANTalon srx = new CANTalon(0);
 
 		Command autonomousCommand;
 		SendableChooser chooser;
@@ -87,9 +86,6 @@ namespace ShibeBot
             Match.Update();
             Power.Update();
 
-            srx.Set(Math.Sin(flot));
-
-            flot += 0.05;
         }
 
         public override void TestPeriodic()
