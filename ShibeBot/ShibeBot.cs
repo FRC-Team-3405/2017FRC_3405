@@ -46,9 +46,9 @@ namespace ShibeBot
 
         public override void AutonomousInit()
         {
-			autonomousCommand = new AutonomousCommand();
+			//autonomousCommand = new AutonomousCommand();
 
-			if (autonomousCommand != null) autonomousCommand.Start();
+			//if (autonomousCommand != null) autonomousCommand.Start();
         }
 
         public override void AutonomousPeriodic()
