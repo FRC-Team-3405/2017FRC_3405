@@ -5,6 +5,7 @@ using CTRE;
 using WPILib;
 using WPILib.Commands;
 using WPILib.SmartDashboard;
+using System.Threading;
 using System;
 
 namespace ShibeBot.Subsystems.DriveTrain
@@ -120,13 +121,28 @@ public class Drive
 
 	public void DriveDistance(double distance)
 	{
-		double position = (distance * 12) / (4 * Math.PI);
+		//double position = (distance * 12) / (4 * Math.PI);
 
-		RightPrimary.SetPosition(position);
-		RightSecondary.SetPosition(position);
+		//RightPrimary.SetPosition(position);
+		//RightSecondary.SetPosition(position);
 
-		LeftPrimary.SetPosition(position);
-		LeftSecondary.SetPosition(position);
+		//LeftPrimary.SetPosition(position);
+		//LeftSecondary.SetPosition(position);
+
+		RightPrimary.Set(1);
+		RightSecondary.Set(1);
+
+		LeftPrimary.Set(1);
+		LeftSecondary.Set(1);
+
+		Thread.Sleep(distance * 1000);
+
+		RightPrimary.Set(0);
+		RightSecondary.Set(0);
+
+		LeftPrimary.Set(0);
+		LeftSecondary.Set(0);
+
 	}
 
 }
