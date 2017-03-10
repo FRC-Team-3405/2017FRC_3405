@@ -18,6 +18,8 @@ namespace ShibeBot.Subsystems.DriveTrain
 		private static readonly CANTalon LeftSecondary = new CANTalon(2);
 		private static readonly CANTalon RightSecondary = new CANTalon(3);
 
+		public bool InvertedControls = false;
+
 		private Drive _drive = new Drive(RightPrimary, LeftPrimary, RightSecondary, LeftSecondary);
 
 		protected override void InitDefaultCommand()
@@ -34,14 +36,28 @@ namespace ShibeBot.Subsystems.DriveTrain
 		{
 			AutoLerp(stick, 0.05);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
-			_drive.TankDrive(rightY, leftY);
+			if (InvertedControls)
+			{
+				_drive.TankDrive(rightY, leftY);
+			}
+			else 
+			{
+				_drive.TankDrive(-rightY, -leftY);
+			}
 		}
 
 		public void ArcadeDrive(Joystick stick)
 		{
 			AutoLerp(stick, 0.05);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
-			_drive.ArcadeDrive(leftY, -leftX);
+			if (InvertedControls)
+			{
+				_drive.ArcadeDrive(-leftY, leftX);
+			}
+			else 
+			{ 
+				_drive.ArcadeDrive(leftY, -leftX);
+			}
 		}
 
 		public void DriveDistance(int distance)

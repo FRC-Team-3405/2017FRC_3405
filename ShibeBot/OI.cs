@@ -42,6 +42,7 @@ namespace ShibeBot
         public static JoystickButton LowerGear = new JoystickButton(Pilot, XboxMap.LeftBumper);
         public static JoystickStick LeftStick = new JoystickStick(Pilot, XboxMap.LeftX, XboxMap.LeftY);
         public static JoystickStick RightStick = new JoystickStick(Pilot, XboxMap.RightX, XboxMap.RightY);
+		public static JoystickButton InvertButton = new JoystickButton(Pilot, XboxMap.BackButton);
 
         //Pilot Variables
         public static DriveStyle DriveStyle = DriveStyle.Arcade;
@@ -72,6 +73,8 @@ namespace ShibeBot
 
 			HigherGear.WhenPressed(new ShiftUpCommand());
 			LowerGear.WhenPressed(new ShiftDownCommand());
+
+			InvertButton.WhenPressed(new InvertCommand());
 
 			//Co-Pilot togglables
 			TurnOnThrower.WhenPressed(new ThrowerOnCommand());
