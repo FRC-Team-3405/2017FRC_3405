@@ -119,6 +119,7 @@
     <Compile Include="Commands\AutonomousCommand.cs" />
     <Compile Include="Commands\InvertOnCommand.cs" />
     <Compile Include="Commands\InvertOffCommand.cs" />
+    <Compile Include="Commands\ClimbCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OperatorInteface\Joystick\" />

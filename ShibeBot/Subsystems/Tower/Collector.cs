@@ -9,6 +9,7 @@ namespace ShibeBot.Subsystems.Tower
 		private static Talon CollectorMotor = new Talon(RobotMap.TowerCollector);
         protected override void InitDefaultCommand()
         {
+			
         }
 
 		public void Collect()

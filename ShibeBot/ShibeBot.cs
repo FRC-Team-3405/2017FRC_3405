@@ -13,6 +13,7 @@ using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
 using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.Reporting;
+using ShibeBot.Subsystems.Lifter;
 
 namespace ShibeBot
 {
@@ -24,6 +25,7 @@ namespace ShibeBot
         public static Pneumatics Pnuematics = new Pneumatics();
         public static Thrower Thrower = new Thrower();
 		public static Collector Collector = new Collector();
+		public static Lifter Lifter = new Lifter();
 
         //Reporting Subsystems (Requires Update!)
         public static Air Air = new Air();
