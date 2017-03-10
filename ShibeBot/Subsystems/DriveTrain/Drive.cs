@@ -33,13 +33,21 @@ namespace ShibeBot.Subsystems.DriveTrain
 		{
 			AutoLerp(stick, 0.05);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
-			_drive.TankDrive(-leftY, -rightY);
+			if (leftY <= 10 && leftY >= -10)
+				rightY = 0;
+			if (rightY <= 10 && rightY >= -10)
+				rightY = 0;
+			_drive.TankDrive(leftY, rightY);
 		}
 
 		public void ArcadeDrive(Joystick stick)
 		{
 			AutoLerp(stick, 0.05);
 			_drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
+			if (leftY <= 10 && leftY >= -10)
+				rightY = 0;
+			if (rightY <= 10 && rightY >= -10)
+				rightY = 0;
 			_drive.ArcadeDrive(-leftY, -leftX);
 		}
 
