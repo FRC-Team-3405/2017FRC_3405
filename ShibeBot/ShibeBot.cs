@@ -44,6 +44,7 @@ namespace ShibeBot
 
         public override void AutonomousInit()
         {
+			
         }
 
         public override void AutonomousPeriodic()

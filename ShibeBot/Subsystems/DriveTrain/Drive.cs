@@ -51,7 +51,7 @@ namespace ShibeBot.Subsystems.DriveTrain
 			_drive.ArcadeDrive(-leftY, -leftX);
 		}
 
-		public void DiveDistance(double distance)
+		public void DriveDistance(double distance)
 		{
 			_drive.DriveDistance(distance);
 		}

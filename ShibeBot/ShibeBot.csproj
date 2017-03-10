@@ -116,6 +116,7 @@
     <Compile Include="Commands\CollectorOffCommand.cs" />
     <Compile Include="Commands\ShiftUpCommand.cs" />
     <Compile Include="Commands\ShiftDownCommand.cs" />
+    <Compile Include="Commands\AutonomousCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OperatorInteface\Joystick\" />
