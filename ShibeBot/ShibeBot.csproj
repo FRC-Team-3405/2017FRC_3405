@@ -104,8 +104,6 @@
     <Compile Include="Subsystems\Reporting\Match.cs" />
     <Compile Include="Subsystems\Reporting\Power.cs" />
     <Compile Include="Subsystems\Reporting\PowerDistribution\PowerChannel.cs" />
-    <Compile Include="Subsystems\Thrower\Thrower.cs" />
-    <Compile Include="Subsystems\Tower\Collector.cs" />
     <Compile Include="Commands\DriveCommand.cs" />
     <Compile Include="Commands\ShiftUpCommand.cs" />
     <Compile Include="Commands\ShiftDownCommand.cs" />

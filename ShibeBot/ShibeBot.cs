@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using WPILib;
+﻿using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
 using WPILib.SmartDashboard;
-using ShibeBot.Subsystems;
 using ShibeBot.Commands;
-using CTRE;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
-using ShibeBot.Subsystems.Thrower;
-using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.Reporting;
 using ShibeBot.Subsystems.Lifter;
 
