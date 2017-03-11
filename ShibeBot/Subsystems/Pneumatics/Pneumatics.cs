@@ -11,7 +11,6 @@ namespace ShibeBot.Subsystems.Pneumatics
     {
         public Compressor Compressor = new Compressor(RobotMap.PrimaryPcm);
         public static readonly DoubleSolenoid Shifter = new DoubleSolenoid(RobotMap.ShifterExtend, RobotMap.ShifterRetract);
-        public static readonly DoubleSolenoid GearHolder = new DoubleSolenoid(RobotMap.GearDoorsExtend, RobotMap.GearDoorsRetract);
         public static readonly DoubleSolenoid GearMech = new DoubleSolenoid(RobotMap.GearGrabberMechExtend, RobotMap.GearGrabberMechRetract);
         public static readonly DoubleSolenoid GearClamp = new DoubleSolenoid(RobotMap.GearClampExtend, RobotMap.GearClampRetract);
 
@@ -72,25 +71,22 @@ namespace ShibeBot.Subsystems.Pneumatics
 		}
         private void StepOne()
         {
-            GearHolder.Set(DoubleSolenoid.Value.Reverse);   
-            GearMech.Set(DoubleSolenoid.Value.Forward);
             GearClamp.Set(DoubleSolenoid.Value.Reverse);
         }
 
         private void StepTwo()
         {
-            GearClamp.Set(DoubleSolenoid.Value.Forward);
+			GearMech.Set(DoubleSolenoid.Value.Forward);
         }
 
         private void StepThree()
         {
-            GearMech.Set(DoubleSolenoid.Value.Reverse);
+			GearClamp.Set(DoubleSolenoid.Value.Forward);
         }
 
         private void StepFour()
         {
-            GearHolder.Set(DoubleSolenoid.Value.Forward);
-            GearClamp.Set(DoubleSolenoid.Value.Forward);
+			GearMech.Set(DoubleSolenoid.Value.Reverse);
         }
     }
 }

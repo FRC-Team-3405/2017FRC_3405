@@ -24,16 +24,16 @@ namespace ShibeBot.Commands
             switch (Oi.Pilot.GetPOV(0))
             {
                 case 0: 
-                    ShibeBot.Pnuematics.StepThroughPnuematics(1);
+                    ShibeBot.Pnuematics.StepThroughPnuematics(4);
                     break;
                 case 90:
-                    ShibeBot.Pnuematics.StepThroughPnuematics(2);
+                    ShibeBot.Pnuematics.StepThroughPnuematics(1);
                     break;
                 case 180:
-                    ShibeBot.Pnuematics.StepThroughPnuematics(3);
+                    ShibeBot.Pnuematics.StepThroughPnuematics(2);
                     break;
                 case 270:
-                    ShibeBot.Pnuematics.StepThroughPnuematics(4);
+                    ShibeBot.Pnuematics.StepThroughPnuematics(3);
                     break;
             }
         }
