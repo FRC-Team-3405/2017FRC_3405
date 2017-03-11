@@ -126,11 +126,6 @@ public class Drive
 	}
 	public void DriveDistance(double distance)
 	{
-		//double position = (distance * 12) / (4 * Math.PI);
-		//RightPrimary.SetPosition(position);
-		//RightSecondary.SetPosition(position);
-		//LeftPrimary.SetPosition(position);
-		//LeftSecondary.SetPosition(position);
 		WPILib.Timer timer = new WPILib.Timer();
 		timer.Reset();
 		timer.Start();
