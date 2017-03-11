@@ -177,6 +177,8 @@ public class Drive
             LeftSecondary.Set(-.5);
         }
 
+		timer.Stop();
+
 
         RightPrimary.Set(0);
         RightSecondary.Set(0);

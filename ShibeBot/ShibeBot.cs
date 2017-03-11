@@ -67,7 +67,6 @@ namespace ShibeBot
 
         }
 
-        private double flot = 0;
         public override void TeleopPeriodic()
         {
             Scheduler.Instance.Run();
