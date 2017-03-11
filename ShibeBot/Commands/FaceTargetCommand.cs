@@ -24,12 +24,6 @@ namespace ShibeBot.Commands
         // Called repeatedly when this Command is scheduled to run
         protected override void Execute()
         {
-            if (!ShibeBot.Camera.SeesTape())
-                ShibeBot.DriveTrain.DriveManually(-spinSpeed, spinSpeed);
-            else
-            {
-                //ShibeBot.Camera.IsBoiler();
-            }
         }
 
         // Make this return true when this Command no longer needs to run execute()

@@ -83,12 +83,8 @@
     <Compile Include="Commands\ArcadeEnable.cs" />
     <Compile Include="Commands\CompressorOffCommand.cs" />
     <Compile Include="Commands\CompressorOnCommand.cs" />
-    <Compile Include="Commands\CoPilotSwitchCommand.cs" />
-    <Compile Include="Commands\FaceTargetCommand.cs" />
     <Compile Include="Commands\GrabGearCommand.cs" />
-    <Compile Include="Commands\PilotSwitchCommand.cs" />
     <Compile Include="Commands\TankEnable.cs" />
-    <Compile Include="Commands\TurnOnOrOff.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
     <Compile Include="Maps\PowerMap.cs" />
@@ -109,20 +105,10 @@
     <Compile Include="Subsystems\Reporting\Match.cs" />
     <Compile Include="Subsystems\Reporting\Power.cs" />
     <Compile Include="Subsystems\Reporting\PowerDistribution\PowerChannel.cs" />
-    <Compile Include="Subsystems\Thrower\Thrower.cs" />
-    <Compile Include="Subsystems\Tower\Collector.cs" />
     <Compile Include="Commands\DriveCommand.cs" />
-    <Compile Include="Commands\ThrowCommand.cs" />
-    <Compile Include="Commands\CollectorCommand.cs" />
-    <Compile Include="Commands\ThrowerOnCommand.cs" />
-    <Compile Include="Commands\ThrowerOffCommand.cs" />
-    <Compile Include="Commands\CollectorOnCommand.cs" />
-    <Compile Include="Commands\CollectorOffCommand.cs" />
     <Compile Include="Commands\ShiftUpCommand.cs" />
     <Compile Include="Commands\ShiftDownCommand.cs" />
     <Compile Include="Commands\AutonomousCommand.cs" />
-    <Compile Include="Commands\InvertOnCommand.cs" />
-    <Compile Include="Commands\InvertOffCommand.cs" />
     <Compile Include="Commands\ClimbCommand.cs" />
   </ItemGroup>
   <ItemGroup>

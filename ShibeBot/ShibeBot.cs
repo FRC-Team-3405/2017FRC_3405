@@ -1,25 +1,16 @@
-﻿using System;
 using CSCore;
 using OpenCvSharp;
 using NetworkTables;
-using WPILib;
+﻿using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
 using WPILib.SmartDashboard;
-using ShibeBot.Subsystems;
 using ShibeBot.Commands;
-using CTRE;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
-using ShibeBot.Subsystems.Thrower;
-using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.Reporting;
-<<<<<<< HEAD
 using System.Threading;
-using System.Collections.Generic;
-=======
 using ShibeBot.Subsystems.Lifter;
->>>>>>> master
 
 namespace ShibeBot
 {
@@ -31,8 +22,6 @@ namespace ShibeBot
 
         public static DriveTrain DriveTrain = new DriveTrain();
         public static Pneumatics Pnuematics = new Pneumatics();
-        public static Thrower Thrower = new Thrower();
-		public static Collector Collector = new Collector();
 		public static Lifter Lifter = new Lifter();
 
         public static CameraServer CameraServer = CameraServer.Instance;
@@ -41,8 +30,6 @@ namespace ShibeBot
         public static Air Air = new Air();
         public static Match Match = new Match();
         public static Power Power = new Power();
-
-        public static Camera Camera = new Camera();
 
 		Command autonomousCommand;
 		SendableChooser chooser;
@@ -101,7 +88,6 @@ namespace ShibeBot
 
         }
 
-        private double flot = 0;
         public override void TeleopPeriodic()
         {
             Scheduler.Instance.Run();
@@ -121,12 +107,6 @@ namespace ShibeBot
             Air.Update();
             Match.Update();
             Power.Update();
-
-<<<<<<< HEAD
-
-            flot += 0.05;
-=======
->>>>>>> master
         }
 
         public override void TestPeriodic()

@@ -8,7 +8,8 @@ namespace ShibeBot.Subsystems.Lifter
     public class Lifter : Subsystem
     {
 		// Change this thing later
-		private static VictorSP LifterMotor = new VictorSP(0);
+		private static TalonSRX ClimberOne = new TalonSRX(0);
+		private static TalonSRX ClimberTwo = new TalonSRX(1);
         protected override void InitDefaultCommand()
         {
             SetDefaultCommand(new ClimbCommand());
@@ -17,7 +18,8 @@ namespace ShibeBot.Subsystems.Lifter
 		public void Climb(Joystick stick) {
 
 			double max = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
-			LifterMotor.Set((max) * stick.GetRawAxis(XboxMap.LeftTrigger));
+			ClimberOne.Set((max) * stick.GetRawAxis(XboxMap.LeftTrigger));
+			ClimberTwo.Set((-max) * stick.GetRawAxis(XboxMap.LeftTrigger));
 
 		}
     }
