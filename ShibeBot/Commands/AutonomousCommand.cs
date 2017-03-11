@@ -10,6 +10,7 @@ namespace ShibeBot.Commands
 		{
 			// Use requires() here to declare subsystem dependencies
 			Requires(ShibeBot.DriveTrain);
+		    Requires(ShibeBot.Pnuematics);
 		}
 		// Called just before this Command runs the first time
 		protected override void Initialize()
@@ -20,7 +21,9 @@ namespace ShibeBot.Commands
 			// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			ShibeBot.DriveTrain.DriveDistance(3);
+		    ShibeBot.Pnuematics.ShiftDown();
+            
+			ShibeBot.DriveTrain.DriveDistance(2.45);
 
 		}
 

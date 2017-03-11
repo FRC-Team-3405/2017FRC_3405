@@ -58,7 +58,7 @@ namespace ShibeBot.Subsystems.DriveTrain
 			}
 		}
 
-		public void DriveDistance(int distance)
+		public void DriveDistance(double distance)
 		{
 			_drive.DriveDistance(distance);
 		}
@@ -92,90 +92,98 @@ namespace ShibeBot.Subsystems.DriveTrain
 public class Drive
 {
 
-	private const int WheelDiameter = 4;
-	private const int InchesToFeet = 12;
+    private const int WheelDiameter = 4;
+    private const int InchesToFeet = 12;
 
 
-	private CANTalon RightPrimary;
-	private CANTalon LeftPrimary;
-	private CANTalon RightSecondary;
-	private CANTalon LeftSecondary;
+    private CANTalon RightPrimary;
+    private CANTalon LeftPrimary;
+    private CANTalon RightSecondary;
+    private CANTalon LeftSecondary;
 
-	public double MaxOutput = 1;
+    public double MaxOutput = 1;
 
-	public Drive(CANTalon _rightPrimary, CANTalon _leftPrimary, CANTalon _rightSecondary, CANTalon _leftSecondary)
-	{
-		RightPrimary = _rightPrimary;
-		LeftPrimary = _leftPrimary;
-		LeftSecondary = _leftSecondary;
-		RightSecondary = _rightSecondary;
-	}
+    public Drive(CANTalon _rightPrimary, CANTalon _leftPrimary, CANTalon _rightSecondary, CANTalon _leftSecondary)
+    {
+        RightPrimary = _rightPrimary;
+        LeftPrimary = _leftPrimary;
+        LeftSecondary = _leftSecondary;
+        RightSecondary = _rightSecondary;
+    }
 
-	public void ArcadeDrive(double x, double y, bool isInverted = false)
-	{
-		double left;
-		double right;
-		if (isInverted)
-		{
-			left = (y - x) * MaxOutput;
-			right = (y + x) * MaxOutput;
-		}
-		else
-		{
-			left = (y + x) * MaxOutput;
-			right = (y - x) * MaxOutput;
-		}
-		if (right <= .2 && right >= -.2) 
-		{
-			right = 0;
-		}
+    public void ArcadeDrive(double x, double y, bool isInverted = false)
+    {
+        double left;
+        double right;
+        if (isInverted)
+        {
+            left = (y - x) * MaxOutput;
+            right = (y + x) * MaxOutput;
+        }
+        else
+        {
+            left = (y + x) * MaxOutput;
+            right = (y - x) * MaxOutput;
+        }
+        if (right <= .2 && right >= -.2)
+        {
+            right = 0;
+        }
 
-		if (left <= .2 && left >= -.2)
-		{
-			left = 0;
-		}
+        if (left <= .2 && left >= -.2)
+        {
+            left = 0;
+        }
 
-		RightPrimary.Set(right);
-		RightSecondary.Set(right);
+        RightPrimary.Set(right);
+        RightSecondary.Set(right);
 
-		LeftPrimary.Set(left);
-		LeftSecondary.Set(left);
+        LeftPrimary.Set(left);
+        LeftSecondary.Set(left);
 
-	}
+    }
 
-	public void TankDrive(double y1, double y2)
-	{
-		RightPrimary.Set(y1 * MaxOutput);
-		RightSecondary.Set(y1 * MaxOutput);
+    public void TankDrive(double y1, double y2)
+    {
+        RightPrimary.Set(y1 * MaxOutput);
+        RightSecondary.Set(y1 * MaxOutput);
 
-		LeftPrimary.Set(y2 * MaxOutput);
-		LeftSecondary.Set(y2 * MaxOutput);
-	}
+        LeftPrimary.Set(y2 * MaxOutput);
+        LeftSecondary.Set(y2 * MaxOutput);
+    }
 
-	public void DriveDistance(int distance)
-	{
-		//double position = (distance * 12) / (4 * Math.PI);
+    public void DriveDistance(double distance)
+    {
+        //double position = (distance * 12) / (4 * Math.PI);
 
-		//RightPrimary.SetPosition(position);
-		//RightSecondary.SetPosition(position);
+        //RightPrimary.SetPosition(position);
+        //RightSecondary.SetPosition(position);
 
-		//LeftPrimary.SetPosition(position);
-		//LeftSecondary.SetPosition(position);
+        //LeftPrimary.SetPosition(position);
+        //LeftSecondary.SetPosition(position);
 
-		RightPrimary.Set(1);
-		RightSecondary.Set(1);
 
-		LeftPrimary.Set(1);
-		LeftSecondary.Set(1);
 
-		Thread.Sleep(distance * 1000);
+        WPILib.Timer timer = new WPILib.Timer();
+        timer.Reset();
+        timer.Start();
 
-		RightPrimary.Set(0);
-		RightSecondary.Set(0);
+        while (timer.Get() < distance)
+        {
+            RightPrimary.Set(.5);
+            RightSecondary.Set(.5);
 
-		LeftPrimary.Set(0);
-		LeftSecondary.Set(0);
+            LeftPrimary.Set(-.5);
+            LeftSecondary.Set(-.5);
+        }
 
-	}
 
-}
+        RightPrimary.Set(0);
+        RightSecondary.Set(0);
+
+        LeftPrimary.Set(0);
+        LeftSecondary.Set(0);
+
+    }
+
+};
