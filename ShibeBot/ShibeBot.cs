@@ -23,8 +23,6 @@ namespace ShibeBot
 
         public static DriveTrain DriveTrain = new DriveTrain();
         public static Pneumatics Pnuematics = new Pneumatics();
-        public static Thrower Thrower = new Thrower();
-		public static Collector Collector = new Collector();
 		public static Lifter Lifter = new Lifter();
 
         //Reporting Subsystems (Requires Update!)
