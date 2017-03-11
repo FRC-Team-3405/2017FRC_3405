@@ -14,8 +14,12 @@ using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Thrower;
 using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.Reporting;
+<<<<<<< HEAD
 using System.Threading;
 using System.Collections.Generic;
+=======
+using ShibeBot.Subsystems.Lifter;
+>>>>>>> master
 
 namespace ShibeBot
 {
@@ -29,6 +33,7 @@ namespace ShibeBot
         public static Pneumatics Pnuematics = new Pneumatics();
         public static Thrower Thrower = new Thrower();
 		public static Collector Collector = new Collector();
+		public static Lifter Lifter = new Lifter();
 
         public static CameraServer CameraServer = CameraServer.Instance;
 
@@ -37,9 +42,10 @@ namespace ShibeBot
         public static Match Match = new Match();
         public static Power Power = new Power();
 
-
         public static Camera Camera = new Camera();
 
+		Command autonomousCommand;
+		SendableChooser chooser;
 
         public override void RobotInit()
         {
@@ -61,26 +67,7 @@ namespace ShibeBot
 						CvSource.NotifyError(CvSink.GetError());
 						continue;
 					}
-					Point[][] points = new Point[10][];
-					HierarchyIndex[] index = new HierarchyIndex[2500];
 					CvSource.PutFrame(source);
-					Mat processed = new Mat();
-					Cv2.CvtColor(source, processed, ColorConversionCodes.BGR2HSV);
-					Cv2.FindContours(processed, out points, RetrievalModes.List, ContourApproximationModes.ApproxSimple);
-					double largest = 1;
-					double secondLargest = 0;
-					for (int i = 0; i < points.Length; i++)
-					{
-						double a = Cv2.ContourArea(points[i], false);
-						if (a > largest) 
-						{
-							largest = a;
-						}
-						else if (a > secondLargest) 
-						{
-							secondLargest = a;
-						}
-					}
 	            }
 
             });
@@ -95,6 +82,9 @@ namespace ShibeBot
 
         public override void AutonomousInit()
         {
+			autonomousCommand = new AutonomousCommand();
+
+			if (autonomousCommand != null) autonomousCommand.Start();
         }
 
         public override void AutonomousPeriodic()
@@ -132,8 +122,11 @@ namespace ShibeBot
             Match.Update();
             Power.Update();
 
+<<<<<<< HEAD
 
             flot += 0.05;
+=======
+>>>>>>> master
         }
 
         public override void TestPeriodic()

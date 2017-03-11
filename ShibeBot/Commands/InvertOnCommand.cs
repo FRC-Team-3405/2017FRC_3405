@@ -3,12 +3,12 @@ using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-	public class ThrowerOnCommand : Command
+	public class InvertOnCommand : Command
 	{
-		public ThrowerOnCommand()
+		public InvertOnCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
-			Requires(ShibeBot.Thrower);
+			Requires(ShibeBot.DriveTrain);
 		}
 
 		// Called just before this Command runs the first time
@@ -20,8 +20,7 @@ namespace ShibeBot.Commands
 		// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			Oi.ThrowerEnabled = true;
-			ShibeBot.Thrower.Throw();
+			ShibeBot.DriveTrain.InvertedControls = true;
 		}
 
 		// Make this return true when this Command no longer needs to run execute()

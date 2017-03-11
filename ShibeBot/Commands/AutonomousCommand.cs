@@ -1,27 +1,30 @@
-﻿using WPILib;
-using WPILib.Commands;
+﻿using System;
+using WPILib;
+	using WPILib.Commands;
 
 namespace ShibeBot.Commands
 {
-	public class ThrowerOnCommand : Command
+	public class AutonomousCommand : Command
 	{
-		public ThrowerOnCommand()
+		public AutonomousCommand()
 		{
 			// Use requires() here to declare subsystem dependencies
-			Requires(ShibeBot.Thrower);
+			Requires(ShibeBot.DriveTrain);
+		    Requires(ShibeBot.Pnuematics);
 		}
-
 		// Called just before this Command runs the first time
 		protected override void Initialize()
 		{
-			
+		
 		}
 
-		// Called repeatedly when this Command is scheduled to run
+			// Called repeatedly when this Command is scheduled to run
 		protected override void Execute()
 		{
-			Oi.ThrowerEnabled = true;
-			ShibeBot.Thrower.Throw();
+		    ShibeBot.Pnuematics.ShiftDown();
+            
+			ShibeBot.DriveTrain.DriveDistance(2.45);
+
 		}
 
 		// Make this return true when this Command no longer needs to run execute()
