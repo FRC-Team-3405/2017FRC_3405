@@ -34,8 +34,8 @@ namespace ShibeBot
 		public static Joystick Pilot = new Joystick(HidMap.PilotXbox);
 
         //Pilot Systems
-        public static JoystickButton ArcadeToggle = new JoystickButton(Pilot, XboxMap.AButton);
-        public static JoystickButton TankToggle = new JoystickButton(Pilot, XboxMap.XButton);
+        public static JoystickButton ThrowerToggle = new JoystickButton(Pilot, XboxMap.AButton);
+        public static JoystickButton CollectorToggle = new JoystickButton(Pilot, XboxMap.XButton);
 		public static JoystickButton HigherGear = new JoystickButton(Pilot, XboxMap.RightBumper);
         public static JoystickButton LowerGear = new JoystickButton(Pilot, XboxMap.LeftBumper);
         public static JoystickStick LeftStick = new JoystickStick(Pilot, XboxMap.LeftX, XboxMap.LeftY);
@@ -45,12 +45,15 @@ namespace ShibeBot
         public static DriveStyle DriveStyle = DriveStyle.Arcade;
         public static Gear ShifterGear = Gear.Low;
 
+		public static bool ThrowerEnabled = false;
+		public static bool CollectorEnabled = false;
+
 
 		public Oi()
 		{
 			//Pilot togglables
-			ArcadeToggle.WhenPressed(new ArcadeEnable());
-			TankToggle.WhenPressed(new TankEnable());
+			ThrowerToggle.WhenPressed(new ThrowerToggle());
+			CollectorToggle.WhenPressed(new CollectorToggle());
 
 			HigherGear.WhenPressed(new ShiftUpCommand());
 			LowerGear.WhenPressed(new ShiftDownCommand());

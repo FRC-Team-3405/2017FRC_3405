@@ -6,9 +6,11 @@ using WPILib.Commands;
 using WPILib.LiveWindow;
 using WPILib.SmartDashboard;
 using ShibeBot.Commands;
+using ShibeBot.Subsystems.Tower;
 using ShibeBot.Subsystems.DriveTrain;
 using ShibeBot.Subsystems.Pneumatics;
 using ShibeBot.Subsystems.Reporting;
+using ShibeBot.Subsystems.Thrower;
 using System.Threading;
 using ShibeBot.Subsystems.Lifter;
 
@@ -18,13 +20,12 @@ namespace ShibeBot
     {
         public static Oi Oi;
 
-        private const string CameraAddress = "axis-camera.local";
 
         public static DriveTrain DriveTrain = new DriveTrain();
         public static Pneumatics Pnuematics = new Pneumatics();
 		public static Lifter Lifter = new Lifter();
-
-        public static CameraServer CameraServer = CameraServer.Instance;
+		public static Collector Collector = new Collector();
+		public static Thrower Thrower = new Thrower();
 
         //Reporting Subsystems (Requires Update!)
         public static Air Air = new Air();
@@ -37,29 +38,6 @@ namespace ShibeBot
         public override void RobotInit()
         {
             Oi = new Oi();
-            Thread CameraThread = new Thread(() =>
-			{
-				UsbCamera camera = CameraServer.Instance.StartAutomaticCapture();
-				camera.SetResolution(640, 480);
-
-				CvSink CvSink = CameraServer.Instance.GetVideo();
-				CvSource CvSource = CameraServer.Instance.PutVideo("Rectangle", 640, 480);
-				Mat source = new Mat();
-
-				while (true)
-				{
-
-					if (CvSink.GrabFrame(source) == 0)
-					{
-						CvSource.NotifyError(CvSink.GetError());
-						continue;
-					}
-					CvSource.PutFrame(source);
-	            }
-
-            });
-            CameraThread.IsBackground = true;
-            CameraThread.Start();
         }
 
         public override void DisabledPeriodic()

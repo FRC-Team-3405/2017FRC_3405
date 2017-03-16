@@ -60,7 +60,14 @@ namespace ShibeBot.Subsystems.Thrower
 		public void Throw() { 
 			Left.Set(1);
 			Right.Set(1);
-			Thread.Sleep(200);
+			WPILib.Timer timer = new WPILib.Timer();
+			timer.Reset();
+			timer.Start();
+			while (timer.Get() < 1) 
+			{ 
+				// Wait
+			}
+			timer.Stop();
 			Loader.Set(1);
 		}
 

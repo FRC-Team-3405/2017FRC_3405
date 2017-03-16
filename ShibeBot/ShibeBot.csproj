@@ -39,28 +39,8 @@
     <StartupObject>ShibeBot.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FRC.CameraServer, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.CameraServer.1.0.1\lib\net45\FRC.CameraServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FRC.NetworkTables.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.NetworkTables.Core.3.1.6\lib\net45\FRC.NetworkTables.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FRC.OpenCvSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.OpenCvSharp.1.0.1\lib\net45\FRC.OpenCvSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="FRC.WPILib.CTRE, Version=2017.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FRC.WPILib.CTRE.2017.0.2\lib\net451\FRC.WPILib.CTRE.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HAL, Version=2017.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.WPILib.2017.0.3\lib\net451\HAL.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NativeLibraryUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NativeLibraryUtilities.1.0.0\lib\net45\NativeLibraryUtilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -70,13 +50,54 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WPILib, Version=2017.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.WPILib.2017.0.3\lib\net451\WPILib.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="WPILib.Extras, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FRC.WPILib.Extras.2017.0.1\lib\net451\WPILib.Extras.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ReactiveProperty">
+      <HintPath>..\packages\ReactiveProperty.3.5.1\lib\net45\ReactiveProperty.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveProperty.NET45">
+      <HintPath>..\packages\ReactiveProperty.3.5.1\lib\net45\ReactiveProperty.NET45.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="NativeLibraryUtilities">
+      <HintPath>..\packages\NativeLibraryUtilities.1.0.3\lib\net45\NativeLibraryUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="FRC.NetworkTables.Core">
+      <HintPath>..\packages\FRC.NetworkTables.Core.3.1.8\lib\net45\FRC.NetworkTables.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FRC.OpenCvSharp">
+      <HintPath>..\packages\FRC.OpenCvSharp.1.0.3\lib\net45\FRC.OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="FRC.CameraServer">
+      <HintPath>..\packages\FRC.CameraServer.1.0.2\lib\net45\FRC.CameraServer.dll</HintPath>
+    </Reference>
+    <Reference Include="WPILib">
+      <HintPath>..\packages\FRC.WPILib.2017.1.0\lib\net451\WPILib.dll</HintPath>
+    </Reference>
+    <Reference Include="HAL">
+      <HintPath>..\packages\FRC.WPILib.Extras.2017.1.0\lib\net451\HAL.dll</HintPath>
+    </Reference>
+    <Reference Include="WPILib.Extras">
+      <HintPath>..\packages\FRC.WPILib.Extras.2017.1.0\lib\net451\WPILib.Extras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -110,34 +131,42 @@
     <Compile Include="Commands\ShiftDownCommand.cs" />
     <Compile Include="Commands\AutonomousCommand.cs" />
     <Compile Include="Commands\ClimbCommand.cs" />
+    <Compile Include="FRCLib\XBoxController.cs" />
+    <Compile Include="FRCLib\CommandBase.cs" />
+    <Compile Include="FRCLib\Pair.cs" />
+    <Compile Include="Commands\CollectorToggleCommand.cs" />
+    <Compile Include="Subsystems\CollectorSubsystem.cs" />
+    <Compile Include="Commands\ThrowerToggleCommand.cs" />
+    <Compile Include="Subsystems\Thrower\Thrower.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OperatorInteface\Joystick\" />
     <Folder Include="Triggers\" />
+    <Folder Include="FRCLib\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="wpinative\libcscore.so" />
-    <None Include="wpinative\libHALAthena.so" />
-    <None Include="wpinative\libntcore.so" />
-    <None Include="wpinative\libOpenCvSharpExtern.so" />
-    <None Include="wpinative\libopencv_calib3d.so.3.1" />
-    <None Include="wpinative\libopencv_core.so.3.1" />
-    <None Include="wpinative\libopencv_features2d.so.3.1" />
-    <None Include="wpinative\libopencv_flann.so.3.1" />
-    <None Include="wpinative\libopencv_highgui.so.3.1" />
-    <None Include="wpinative\libopencv_imgcodecs.so.3.1" />
-    <None Include="wpinative\libopencv_imgproc.so.3.1" />
-    <None Include="wpinative\libopencv_ml.so.3.1" />
-    <None Include="wpinative\libopencv_objdetect.so.3.1" />
-    <None Include="wpinative\libopencv_photo.so.3.1" />
-    <None Include="wpinative\libopencv_shape.so.3.1" />
-    <None Include="wpinative\libopencv_stitching.so.3.1" />
-    <None Include="wpinative\libopencv_superres.so.3.1" />
-    <None Include="wpinative\libopencv_video.so.3.1" />
-    <None Include="wpinative\libopencv_videoio.so.3.1" />
-    <None Include="wpinative\libopencv_videostab.so.3.1" />
     <None Include="wpinative\libwpiutil.so" />
+    <None Include="wpinative\libopencv_videostab.so.3.1" />
+    <None Include="wpinative\libopencv_videoio.so.3.1" />
+    <None Include="wpinative\libopencv_video.so.3.1" />
+    <None Include="wpinative\libopencv_superres.so.3.1" />
+    <None Include="wpinative\libopencv_stitching.so.3.1" />
+    <None Include="wpinative\libopencv_shape.so.3.1" />
+    <None Include="wpinative\libopencv_photo.so.3.1" />
+    <None Include="wpinative\libopencv_objdetect.so.3.1" />
+    <None Include="wpinative\libopencv_ml.so.3.1" />
+    <None Include="wpinative\libopencv_imgproc.so.3.1" />
+    <None Include="wpinative\libopencv_imgcodecs.so.3.1" />
+    <None Include="wpinative\libopencv_highgui.so.3.1" />
+    <None Include="wpinative\libopencv_flann.so.3.1" />
+    <None Include="wpinative\libopencv_features2d.so.3.1" />
+    <None Include="wpinative\libopencv_core.so.3.1" />
+    <None Include="wpinative\libopencv_calib3d.so.3.1" />
+    <None Include="wpinative\libOpenCvSharpExtern.so" />
+    <None Include="wpinative\libntcore.so" />
+    <None Include="wpinative\libHALAthena.so" />
+    <None Include="wpinative\libcscore.so" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
