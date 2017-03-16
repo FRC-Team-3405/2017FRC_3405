@@ -135,14 +135,15 @@
     <Compile Include="FRCLib\CommandBase.cs" />
     <Compile Include="FRCLib\Pair.cs" />
     <Compile Include="Commands\CollectorToggleCommand.cs" />
-    <Compile Include="Subsystems\CollectorSubsystem.cs" />
     <Compile Include="Commands\ThrowerToggleCommand.cs" />
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
+    <Compile Include="Subsystems\Collector\Collector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OperatorInteface\Joystick\" />
     <Folder Include="Triggers\" />
     <Folder Include="FRCLib\" />
+    <Folder Include="Subsystems\Collector\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
