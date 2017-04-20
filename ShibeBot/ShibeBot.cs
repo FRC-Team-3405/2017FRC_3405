@@ -1,8 +1,10 @@
-﻿using WPILib;
+﻿using System.Threading;
+using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
 using ShibeBot.Subsystems.DriveTrain;
 using CSCore;
+using OpenCvSharp;
 
 namespace ShibeBot
 {
@@ -17,11 +19,8 @@ namespace ShibeBot
             Oi = new Oi();
 			UsbCamera camera = CameraServer.Instance.StartAutomaticCapture();
 			camera.SetResolution(640, 480);
-			// Get a CvSink. This will capture Mats from the Camera
-			CvSink cvSink = CameraServer.Instance.GetVideo();
-			// Setup a CvSource. This will send images back to the dashboard
-			CvSource outputStream = CameraServer.Instance.PutVideo("Rectangle", 640, 480);
-        }
+
+		}
 
         public override void DisabledPeriodic()
         {
@@ -46,7 +45,6 @@ namespace ShibeBot
 
         }
 
-        private double flot = 0;
         public override void TeleopPeriodic()
         {
             Scheduler.Instance.Run();
