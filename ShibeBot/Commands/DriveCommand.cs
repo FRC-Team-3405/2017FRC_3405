@@ -21,15 +21,7 @@ namespace ShibeBot.Commands
         // Called repeatedly when this Command is scheduled to run
         protected override void Execute()
         {
-            if (Oi.DriveStyle == DriveStyle.Tank)
-            {
-                ShibeBot.DriveTrain.TankDrive(Oi.Pilot);
-            }
-            else
-            {
-                ShibeBot.DriveTrain.ArcadeDrive(Oi.Pilot);
-            }
-
+			ShibeBot.DriveTrain.Drive(Oi.Pilot);
         }
 
         // Make this return true when this Command no longer needs to run execute()

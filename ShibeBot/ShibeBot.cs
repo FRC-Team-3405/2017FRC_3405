@@ -1,10 +1,7 @@
-﻿using System.Threading;
-using WPILib;
+﻿using WPILib;
 using WPILib.Commands;
 using WPILib.LiveWindow;
 using ShibeBot.Subsystems.DriveTrain;
-using CSCore;
-using OpenCvSharp;
 
 namespace ShibeBot
 {
@@ -17,7 +14,6 @@ namespace ShibeBot
         public override void RobotInit()
         {
             Oi = new Oi();
-
 		}
 
         public override void DisabledPeriodic()

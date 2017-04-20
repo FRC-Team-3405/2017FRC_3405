@@ -44,9 +44,7 @@ namespace ShibeBot
 	    public static bool HopperFeedEnabled = false;
 
         public Oi() {
-            ArcadeToggle.WhenPressed(new ArcadeEnable());
-            TankToggle.WhenPressed(new TankEnable());
-
+            
         }
 
 	}

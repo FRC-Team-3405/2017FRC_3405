@@ -11,12 +11,12 @@ namespace ShibeBot.Subsystems.DriveTrain
     public class DriveTrain : Subsystem
     {
 		
-		private static readonly CANTalon LeftPrimary = new CANTalon(0);
-        private static readonly CANTalon RightPrimary = new CANTalon(1);
-        private static readonly CANTalon LeftSecondary = new CANTalon(2);
-		private static readonly CANTalon RightSecondary = new CANTalon(3);
+		private static readonly Talon LeftPrimary = new Talon(0);
+        private static readonly Talon RightPrimary = new Talon(1);
+        private static readonly Talon LeftSecondary = new Talon(2);
+		private static readonly Talon RightSecondary = new Talon(3);
 
-		public RobotDrive _drive = new RobotDrive(LeftPrimary, RightPrimary);
+		public RobotDrive _drive = new RobotDrive(LeftPrimary, LeftSecondary, RightPrimary, LeftSecondary);
 		private int _driveSpeed;
 
         protected override void InitDefaultCommand()
@@ -29,19 +29,10 @@ namespace ShibeBot.Subsystems.DriveTrain
         private double rightX = 0;
         private double rightY = 0;
 
-		public void TankDrive(Joystick stick)
+		public void Drive(Joystick stick)
 		{
-		    AutoLerp(stick, 0.05);
-            _drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
-            _drive.TankDrive(-leftY, -rightY);
+			_drive.MecanumDrive_Cartesian(stick.GetX(), stick.GetY(), 1);
 		}
-
-        public void ArcadeDrive(Joystick stick)
-        {
-            AutoLerp(stick, 0.05);
-            _drive.MaxOutput = 1 - stick.GetRawAxis(XboxMap.RightTrigger);
-            _drive.ArcadeDrive(-leftY, -leftX);
-        }
 
         private void AutoLerp(Joystick stick, double amount)
         {

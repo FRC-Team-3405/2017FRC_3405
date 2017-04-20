@@ -80,8 +80,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ArcadeEnable.cs" />
-    <Compile Include="Commands\TankEnable.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
     <Compile Include="Maps\PowerMap.cs" />
