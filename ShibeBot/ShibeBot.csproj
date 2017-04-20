@@ -81,11 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ArcadeEnable.cs" />
-    <Compile Include="Commands\CompressorOffCommand.cs" />
-    <Compile Include="Commands\CompressorOnCommand.cs" />
-    <Compile Include="Commands\GrabGearCommand.cs" />
     <Compile Include="Commands\TankEnable.cs" />
-    <Compile Include="Commands\TurnOnOrOff.cs" />
     <Compile Include="Examples\ExampleCommand.cs" />
     <Compile Include="Maps\HIDMap.cs" />
     <Compile Include="Maps\PowerMap.cs" />
@@ -99,8 +95,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subsystems\DriveTrain\Drive.cs" />
     <Compile Include="Subsystems\Environment\Position.cs" />
-    <Compile Include="Subsystems\Lifter\Lifter.cs" />
-    <Compile Include="Subsystems\Pneumatics\Pneumatics.cs" />
     <Compile Include="Subsystems\Reporting\Air.cs" />
     <Compile Include="Subsystems\Reporting\Match.cs" />
     <Compile Include="Subsystems\Reporting\Power.cs" />
@@ -108,14 +102,6 @@
     <Compile Include="Subsystems\Thrower\Thrower.cs" />
     <Compile Include="Subsystems\Tower\Collector.cs" />
     <Compile Include="Commands\DriveCommand.cs" />
-    <Compile Include="Commands\ThrowCommand.cs" />
-    <Compile Include="Commands\CollectorCommand.cs" />
-    <Compile Include="Commands\ThrowerOnCommand.cs" />
-    <Compile Include="Commands\ThrowerOffCommand.cs" />
-    <Compile Include="Commands\CollectorOnCommand.cs" />
-    <Compile Include="Commands\CollectorOffCommand.cs" />
-    <Compile Include="Commands\ShiftUpCommand.cs" />
-    <Compile Include="Commands\ShiftDownCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OperatorInteface\Joystick\" />

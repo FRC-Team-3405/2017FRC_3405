@@ -18,7 +18,6 @@ namespace ShibeBot.Subsystems.Reporting
 
         protected override void InitDefaultCommand()
         {
-            Compressor = ShibeBot.Pnuematics.Compressor;
 
             Channels = new List<PowerChannel> {
                 new PowerChannel(Panel, PowerMap.DriveTrainLeftPrimaryPowerPort, PowerMap.DriveTrainLeftPrimaryPowerName),
