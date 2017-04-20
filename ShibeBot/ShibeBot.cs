@@ -17,8 +17,6 @@ namespace ShibeBot
         public override void RobotInit()
         {
             Oi = new Oi();
-			UsbCamera camera = CameraServer.Instance.StartAutomaticCapture();
-			camera.SetResolution(640, 480);
 
 		}
 
